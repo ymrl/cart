@@ -1,0 +1,37 @@
+<%= form_for(@commodity) do |f| %>
+  <% if @commodity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@commodity.errors.count, "error") %> prohibited this commodity from being saved:</h2>
+
+      <ul>
+      <% @commodity.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :jan %><br />
+    <%= f.text_field :jan %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.number_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :ingredient_id%><br />
+    <%= f.select :ingredient_id ,options_from_collection_for_select(@ingredients,:id,:name) %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %><br />
+    <%= f.text_field :weight %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

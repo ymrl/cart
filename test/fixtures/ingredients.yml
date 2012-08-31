@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  calorie: 1.5
+  carbohydrates: 1.5
+  protein: 1
+  fat: 1.5
+  carotene: 1.5
+  vitamin_b1: 1.5
+  vitamin_b2: 1.5
+  vitamin_c: 1.5
+  calcium: 1.5
+
+two:
+  name: MyString
+  calorie: 1.5
+  carbohydrates: 1.5
+  protein: 1
+  fat: 1.5
+  carotene: 1.5
+  vitamin_b1: 1.5
+  vitamin_b2: 1.5
+  vitamin_c: 1.5
+  calcium: 1.5

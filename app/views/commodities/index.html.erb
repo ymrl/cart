@@ -1,0 +1,31 @@
+<h1>Listing commodities</h1>
+
+<table>
+  <tr>
+    <th>Jan</th>
+    <th>Price</th>
+    <th>Ingredient</th>
+    <th>Weight</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @commodities.each do |commodity| %>
+  <tr>
+    <td><%= commodity.jan %></td>
+    <td><%= commodity.price %></td>
+    <td><%= link_to commodity.ingredient.name,ingredient_url(commodity.ingredient) %></td>
+    <td><%= commodity.weight %></td>
+    <td><%= commodity.description %></td>
+    <td><%= link_to 'Show', commodity %></td>
+    <td><%= link_to 'Edit', edit_commodity_path(commodity) %></td>
+    <td><%= link_to 'Destroy', commodity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Commodity', new_commodity_path %>

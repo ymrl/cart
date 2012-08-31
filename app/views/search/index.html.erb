@@ -1,0 +1,24 @@
+<%= form_tag '' do |f|%>
+  <%= select_tag :ingredient,options_from_collection_for_select(@ingredients,:id,:name) ,{:multiple=>true,:size => 10}%>
+<% end %>
+<div id="recipes">
+</div>
+<script>
+  $(function(){
+    $('#ingredient').change(function(e){
+
+      var value = $('#ingredient').val();
+      $('#recipes').empty()
+      for(var i=0;i<value.length;i++){
+        $.getJSON('/recipes/search',{ingredient_id:value[i]},function(data){
+          console.log(data);
+          for(var j=0;j<data.length;j++){
+            var w = $('<div>').appendTo($('#recipes'));
+            $('<a>').text(data[j].title).attr('href','http://erecipe.woman.excite.co.jp/' + data[j].title.url).appendTo(w);
+              $('<img>').attr('src',data[j].image).appendTo(w);
+          }
+        });
+      }
+    });
+  });
+</script>

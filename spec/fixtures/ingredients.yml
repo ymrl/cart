@@ -1,0 +1,505 @@
+---
+'1':
+  :name: 牛肉
+  :calorie: '165.00 '
+  :carbohydrates: '0.70 '
+  :protein: '21.50 '
+  :fat: '7.60 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.10 '
+  :vitamin_b2: '0.18 '
+  :vitamin_c: '2.00 '
+  :calcium: '3.00 '
+  :id: 1
+'2':
+  :name: 豚肉
+  :calorie: '177.00 '
+  :carbohydrates: '0.40 '
+  :protein: '20.30 '
+  :fat: '9.50 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.78 '
+  :vitamin_b2: '0.21 '
+  :vitamin_c: '1.00 '
+  :calcium: '6.00 '
+  :id: 2
+'43':
+  :name: 鶏肉
+  :calorie: '182.00 '
+  :carbohydrates: '0.10 '
+  :protein: '19.50 '
+  :fat: '10.60 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.09 '
+  :vitamin_b2: '0.28 '
+  :vitamin_c: '1.00 '
+  :calcium: '10.00 '
+  :id: 43
+'4':
+  :name: アジ
+  :calorie: '144.00 '
+  :carbohydrates: '0.10 '
+  :protein: '18.70 '
+  :fat: '6.90 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.12 '
+  :vitamin_b2: '0.16 '
+  :vitamin_c: '1.00 '
+  :calcium: '65.00 '
+  :id: 4
+'5':
+  :name: マグロ
+  :calorie: '108.00 '
+  :carbohydrates: '0.10 '
+  :protein: '24.30 '
+  :fat: '0.50 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.10 '
+  :vitamin_b2: '0.15 '
+  :vitamin_c: '2.00 '
+  :calcium: '2.00 '
+  :id: 5
+'6':
+  :name: サーモン
+  :calorie: '167.00 '
+  :carbohydrates: '0.10 '
+  :protein: '20.70 '
+  :fat: '8.40 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.22 '
+  :vitamin_b2: '0.17 '
+  :vitamin_c: '2.00 '
+  :calcium: '14.00 '
+  :id: 6
+'44':
+  :name: 鶏卵
+  :calorie: '162.00 '
+  :carbohydrates: '0.90 '
+  :protein: '12.30 '
+  :fat: '11.20 '
+  :carotene: '15.00 '
+  :vitamin_b1: '0.08 '
+  :vitamin_b2: '0.48 '
+  :vitamin_c: '0.00 '
+  :calcium: '55.00 '
+  :id: 44
+'45':
+  :name: 豆腐
+  :calorie: '77.00 '
+  :carbohydrates: '0.80 '
+  :protein: '6.80 '
+  :fat: '5.00 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.07 '
+  :vitamin_b2: '0.03 '
+  :vitamin_c: '0.00 '
+  :calcium: '120.00 '
+  :id: 45
+'9':
+  :name: 納豆
+  :calorie: '200.00 '
+  :carbohydrates: '12.10 '
+  :protein: '16.50 '
+  :fat: '10.00 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.07 '
+  :vitamin_b2: '0.56 '
+  :vitamin_c: '0.00 '
+  :calcium: '90.00 '
+  :id: 9
+'10':
+  :name: 牛乳
+  :calorie: '59.00 '
+  :carbohydrates: '4.50 '
+  :protein: '2.90 '
+  :fat: '3.20 '
+  :carotene: '11.00 '
+  :vitamin_b1: '0.03 '
+  :vitamin_b2: '0.15 '
+  :vitamin_c: '0.00 '
+  :calcium: '100.00 '
+  :id: 10
+'11':
+  :name: チーズ
+  :calorie: '356.00 '
+  :carbohydrates: '1.40 '
+  :protein: '28.90 '
+  :fat: '25.00 '
+  :carotene: '150.00 '
+  :vitamin_b1: '0.04 '
+  :vitamin_b2: '0.42 '
+  :vitamin_c: '0.00 '
+  :calcium: '660.00 '
+  :id: 11
+'46':
+  :name: わかめ
+  :calorie: '0.00 '
+  :carbohydrates: '38.00 '
+  :protein: '15.00 '
+  :fat: '3.20 '
+  :carotene: '3,300.00 '
+  :vitamin_b1: '0.30 '
+  :vitamin_b2: '1.15 '
+  :vitamin_c: '15.00 '
+  :calcium: '960.00 '
+  :id: 46
+'13':
+  :name: ヨーグルト
+  :calorie: '60.00 '
+  :carbohydrates: '5.00 '
+  :protein: '3.20 '
+  :fat: '3.00 '
+  :carotene: '11.00 '
+  :vitamin_b1: '0.04 '
+  :vitamin_b2: '0.20 '
+  :vitamin_c: '0.00 '
+  :calcium: '110.00 '
+  :id: 13
+'14':
+  :name: 焼きのり
+  :calorie: '0.00 '
+  :carbohydrates: '4.20 '
+  :protein: '1.90 '
+  :fat: '0.10 '
+  :carotene: '340.00 '
+  :vitamin_b1: '0.13 '
+  :vitamin_b2: '0.16 '
+  :vitamin_c: '12.00 '
+  :calcium: '21.00 '
+  :id: 14
+'47':
+  :name: しらす干し
+  :calorie: '176.00 '
+  :carbohydrates: '0.30 '
+  :protein: '378.00 '
+  :fat: '1.60 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.02 '
+  :vitamin_b2: '0.20 '
+  :vitamin_c: '0.00 '
+  :calcium: '530.00 '
+  :id: 47
+'48':
+  :name: ホウレンソウ
+  :calorie: '25.00 '
+  :carbohydrates: '4.40 '
+  :protein: '3.30 '
+  :fat: '0.20 '
+  :carotene: '3,100.00 '
+  :vitamin_b1: '0.13 '
+  :vitamin_b2: '0.23 '
+  :vitamin_c: '65.00 '
+  :calcium: '55.00 '
+  :id: 48
+'17':
+  :name: トマト
+  :calorie: '16.00 '
+  :carbohydrates: '3.70 '
+  :protein: '0.70 '
+  :fat: '0.10 '
+  :carotene: '390.00 '
+  :vitamin_b1: '0.05 '
+  :vitamin_b2: '0.03 '
+  :vitamin_c: '20.00 '
+  :calcium: '9.00 '
+  :id: 17
+'18':
+  :name: ブロッコリー
+  :calorie: '43.00 '
+  :carbohydrates: '7.80 '
+  :protein: '5.90 '
+  :fat: '0.10 '
+  :carotene: '720.00 '
+  :vitamin_b1: '0.12 '
+  :vitamin_b2: '0.27 '
+  :vitamin_c: '160.00 '
+  :calcium: '49.00 '
+  :id: 18
+'49':
+  :name: にんじん
+  :calorie: '32.00 '
+  :carbohydrates: '7.10 '
+  :protein: '1.20 '
+  :fat: '0.20 '
+  :carotene: '7,300.00 '
+  :vitamin_b1: '0.07 '
+  :vitamin_b2: '0.05 '
+  :vitamin_c: '6.00 '
+  :calcium: '39.00 '
+  :id: 49
+'20':
+  :name: ピーマン
+  :calorie: '21.00 '
+  :carbohydrates: '5.00 '
+  :protein: '0.90 '
+  :fat: '0.10 '
+  :carotene: '270.00 '
+  :vitamin_b1: '0.04 '
+  :vitamin_b2: '0.04 '
+  :vitamin_c: '80.00 '
+  :calcium: '10.00 '
+  :id: 20
+'21':
+  :name: アスパラ
+  :calorie: '20.00 '
+  :carbohydrates: '4.20 '
+  :protein: '1.00 '
+  :fat: '0.10 '
+  :carotene: '350.00 '
+  :vitamin_b1: '0.11 '
+  :vitamin_b2: '0.13 '
+  :vitamin_c: '8.00 '
+  :calcium: '21.00 '
+  :id: 21
+'22':
+  :name: カボチャ
+  :calorie: '36.00 '
+  :carbohydrates: '8.90 '
+  :protein: '1.30 '
+  :fat: '0.10 '
+  :carotene: '620.00 '
+  :vitamin_b1: '0.07 '
+  :vitamin_b2: '0.06 '
+  :vitamin_c: '15.00 '
+  :calcium: '17.00 '
+  :id: 22
+'23':
+  :name: パセリ
+  :calorie: '37.00 '
+  :carbohydrates: '7.90 '
+  :protein: '3.00 '
+  :fat: '0.20 '
+  :carotene: '7,500.00 '
+  :vitamin_b1: '0.20 '
+  :vitamin_b2: '0.24 '
+  :vitamin_c: '200.00 '
+  :calcium: '190.00 '
+  :id: 23
+'50':
+  :name: シソ
+  :calorie: '35.00 '
+  :carbohydrates: '7.00 '
+  :protein: '3.80 '
+  :fat: '0.10 '
+  :carotene: '8,700.00 '
+  :vitamin_b1: '55.00 '
+  :vitamin_b2: '0.32 '
+  :vitamin_c: '55.00 '
+  :calcium: '220.00 '
+  :id: 50
+'51':
+  :name: タマネギ
+  :calorie: '35.00 '
+  :carbohydrates: '8.10 '
+  :protein: '1.00 '
+  :fat: '0.10 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.04 '
+  :vitamin_b2: '0.01 '
+  :vitamin_c: '7.00 '
+  :calcium: '15.00 '
+  :id: 51
+'26':
+  :name: バナナ
+  :calorie: '87.00 '
+  :carbohydrates: '22.90 '
+  :protein: '1.10 '
+  :fat: '0.10 '
+  :carotene: '27.00 '
+  :vitamin_b1: '0.04 '
+  :vitamin_b2: '0.04 '
+  :vitamin_c: '10.00 '
+  :calcium: '4.00 '
+  :id: 26
+'52':
+  :name: キウィ
+  :calorie: '56.00 '
+  :carbohydrates: '13.80 '
+  :protein: '1.00 '
+  :fat: '0.40 '
+  :carotene: '36.00 '
+  :vitamin_b1: '0.00 '
+  :vitamin_b2: '0.03 '
+  :vitamin_c: '80.00 '
+  :calcium: '27.00 '
+  :id: 52
+'28':
+  :name: レモン
+  :calorie: '24.00 '
+  :carbohydrates: '7.60 '
+  :protein: '0.40 '
+  :fat: '0.20 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.04 '
+  :vitamin_b2: '0.02 '
+  :vitamin_c: '45.00 '
+  :calcium: '7.00 '
+  :id: 28
+'29':
+  :name: キャベツ
+  :calorie: '24.00 '
+  :carbohydrates: '5.50 '
+  :protein: '1.40 '
+  :fat: '0.10 '
+  :carotene: '20.00 '
+  :vitamin_b1: '0.03 '
+  :vitamin_b2: '0.03 '
+  :vitamin_c: '24.00 '
+  :calcium: '40.00 '
+  :id: 29
+'53':
+  :name: ごぼう
+  :calorie: '76.00 '
+  :carbohydrates: '17.60 '
+  :protein: '2.80 '
+  :fat: '0.10 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.04 '
+  :vitamin_b2: '0.07 '
+  :vitamin_c: '4.00 '
+  :calcium: '49.00 '
+  :id: 53
+'54':
+  :name: なす
+  :calorie: '18.00 '
+  :carbohydrates: '4.00 '
+  :protein: '1.10 '
+  :fat: '0.10 '
+  :carotene: '40.00 '
+  :vitamin_b1: '0.03 '
+  :vitamin_b2: '0.04 '
+  :vitamin_c: '2.00 '
+  :calcium: '14.00 '
+  :id: 54
+'32':
+  :name: 大根
+  :calorie: '18.00 '
+  :carbohydrates: '4.00 '
+  :protein: '0.80 '
+  :fat: '0.10 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.03 '
+  :vitamin_b2: '0.02 '
+  :vitamin_c: '15.00 '
+  :calcium: '30.00 '
+  :id: 32
+'55':
+  :name: しいたけ
+  :calorie: '0.00 '
+  :carbohydrates: '61.80 '
+  :protein: '20.30 '
+  :fat: '3.40 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.57 '
+  :vitamin_b2: '1.70 '
+  :vitamin_c: '0.00 '
+  :calcium: '12.00 '
+  :id: 55
+'56':
+  :name: はちみつ
+  :calorie: '294.00 '
+  :carbohydrates: '79.70 '
+  :protein: '0.20 '
+  :fat: '0.00 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.01 '
+  :vitamin_b2: '0.01 '
+  :vitamin_c: '3.00 '
+  :calcium: '2.00 '
+  :id: 56
+'57':
+  :name: じゃがいも
+  :calorie: '77.00 '
+  :carbohydrates: '17.20 '
+  :protein: '2.00 '
+  :fat: '0.20 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.11 '
+  :vitamin_b2: '0.03 '
+  :vitamin_c: '23.00 '
+  :calcium: '5.00 '
+  :id: 57
+'58':
+  :name: さつまいも
+  :calorie: '123.00 '
+  :carbohydrates: '29.40 '
+  :protein: '1.20 '
+  :fat: '0.20 '
+  :carotene: '10.00 '
+  :vitamin_b1: '0.10 '
+  :vitamin_b2: '0.05 '
+  :vitamin_c: '30.00 '
+  :calcium: '32.00 '
+  :id: 58
+'59':
+  :name: 白米
+  :calorie: '148.00 '
+  :carbohydrates: '31.80 '
+  :protein: '2.60 '
+  :fat: '0.50 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.03 '
+  :vitamin_b2: '0.01 '
+  :vitamin_c: '0.00 '
+  :calcium: '2.00 '
+  :id: 59
+'60':
+  :name: パスタ
+  :calorie: '149.00 '
+  :carbohydrates: '28.40 '
+  :protein: '5.20 '
+  :fat: '0.90 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.04 '
+  :vitamin_b2: '0.02 '
+  :vitamin_c: '0.00 '
+  :calcium: '7.00 '
+  :id: 60
+'39':
+  :name: 砂糖
+  :calorie: '384.00 '
+  :carbohydrates: '99.20 '
+  :protein: '0.00 '
+  :fat: '0.00 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.00 '
+  :vitamin_b2: '0.00 '
+  :vitamin_c: '0.00 '
+  :calcium: '1.00 '
+  :id: 39
+'40':
+  :name: バター
+  :calorie: '745.00 '
+  :carbohydrates: '0.20 '
+  :protein: '0.60 '
+  :fat: '81.00 '
+  :carotene: '140.00 '
+  :vitamin_b1: '0.01 '
+  :vitamin_b2: '0.03 '
+  :vitamin_c: '0.00 '
+  :calcium: '15.00 '
+  :id: 40
+'41':
+  :name: マヨネーズ
+  :calorie: '698.00 '
+  :carbohydrates: '3.00 '
+  :protein: '1.50 '
+  :fat: '75.40 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.02 '
+  :vitamin_b2: '0.06 '
+  :vitamin_c: '0.00 '
+  :calcium: '8.00 '
+  :id: 41
+'42':
+  :name: サラダ油
+  :calorie: '921.00 '
+  :carbohydrates: '0.00 '
+  :protein: '0.00 '
+  :fat: '100.00 '
+  :carotene: '0.00 '
+  :vitamin_b1: '0.00 '
+  :vitamin_b2: '0.00 '
+  :vitamin_c: '0.00 '
+  :calcium: '0.00 '
+  :id: 42
