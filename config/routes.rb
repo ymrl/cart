@@ -1,4 +1,5 @@
 Cart::Application.routes.draw do
+
   resources :materials
 
   resources :recipes do
@@ -12,6 +13,7 @@ Cart::Application.routes.draw do
   resources :ingredients
 
   get 'search' , :controller => 'search', :action => 'index'
+  root :controller => :home, :action => :index
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
