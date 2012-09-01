@@ -1,6 +1,6 @@
 class Commodity < ActiveRecord::Base
   belongs_to :ingredient
-  attr_accessible :description, :jan, :price, :weight, :ingredient, :ingredient_id
+  attr_accessible :description, :jan, :price, :weight, :ingredient, :ingredient_id,:producer
   validates :price, :presence => true
   validates :weight,:presence => true
   validates :jan,   :presence => true, :jan_code => true

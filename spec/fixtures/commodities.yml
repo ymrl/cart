@@ -1,0 +1,337 @@
+---
+'1':
+  :weight: '100'
+  :price: '490'
+  :producer: 山形県産
+  :description: 和牛100g焼肉・すきやき・しゃぶしゃぶ用
+  :jan: 
+  :ingredient_id: 1
+  :commodity_id: 1
+'2':
+  :weight: '100'
+  :price: '210'
+  :producer: 鹿児島県曽於市
+  :description: お子様のお弁当に！国産豚肉ローススライス100g
+  :jan: 
+  :ingredient_id: 2
+  :commodity_id: 2
+'3':
+  :weight: '100'
+  :price: '110'
+  :producer: 岩手県九戸郡
+  :description: 新鮮！国産鶏もも肉100g
+  :jan: 
+  :ingredient_id: 3
+  :commodity_id: 3
+'4':
+  :weight: '120'
+  :price: '150'
+  :producer: 長崎
+  :description: 国産
+  :jan: 
+  :ingredient_id: 4
+  :commodity_id: 4
+'5':
+  :weight: '100'
+  :price: '598'
+  :producer: オーストラリア
+  :description: 刺身用（養殖・解凍）
+  :jan: 
+  :ingredient_id: 5
+  :commodity_id: 5
+'6':
+  :weight: '100'
+  :price: '297'
+  :producer: チリ
+  :description: 刺身用（養殖・解凍）
+  :jan: 
+  :ingredient_id: 6
+  :commodity_id: 6
+'7':
+  :weight: '50'
+  :price: '28'
+  :producer: 茨城県坂東市
+  :description: 産卵日入たまご
+  :jan: 
+  :ingredient_id: 7
+  :commodity_id: 7
+'8':
+  :weight: '300'
+  :price: '98'
+  :producer: 北海道
+  :description: 国産にがり造り木綿300g
+  :jan: 
+  :ingredient_id: 8
+  :commodity_id: 8
+'9':
+  :weight: '90'
+  :price: '98'
+  :producer: 静岡県
+  :description: 大粒味わい納豆(45g×2)
+  :jan: 
+  :ingredient_id: 9
+  :commodity_id: 9
+'10':
+  :weight: '200'
+  :price: '84'
+  :producer: 北海道
+  :description: まごころ製法により、酸素と熱と光から守られた牛乳200ｍｌ
+  :jan: 
+  :ingredient_id: 10
+  :commodity_id: 10
+'11':
+  :weight: '50'
+  :price: '393'
+  :producer: フランス
+  :description: ラングル AOP（ウォッシュタイプ）
+  :jan: 
+  :ingredient_id: 11
+  :commodity_id: 11
+'12':
+  :weight: '30'
+  :price: '98'
+  :producer: 北海道
+  :description: 手軽なカットわかめ
+  :jan: 
+  :ingredient_id: 12
+  :commodity_id: 12
+'13':
+  :weight: '500'
+  :price: '198'
+  :producer: MEIJI
+  :description: ブルガリアヨーグルト500g
+  :jan: 
+  :ingredient_id: 13
+  :commodity_id: 13
+'14':
+  :weight: '20'
+  :price: '315'
+  :producer: 千葉県
+  :description: 特選おにぎりのり
+  :jan: 
+  :ingredient_id: 14
+  :commodity_id: 14
+'15':
+  :weight: '50'
+  :price: '280'
+  :producer: 静岡県
+  :description: ご飯によく合うしらす干し50g
+  :jan: 
+  :ingredient_id: 15
+  :commodity_id: 15
+'16':
+  :weight: '60'
+  :price: '198'
+  :producer: 岐阜県高山地区
+  :description: 高冷地で育ったため、葉が厚く、緑色が濃いのが特徴です。
+  :jan: 
+  :ingredient_id: 16
+  :commodity_id: 16
+'17':
+  :weight: '100'
+  :price: '71'
+  :producer: 北海道上磯郡知内地区
+  :description: 酸味と甘味のバランスがとれたトマトです。
+  :jan: 
+  :ingredient_id: 17
+  :commodity_id: 17
+'18':
+  :weight: '200'
+  :price: '98'
+  :producer: 北海道上川郡東川地区
+  :description: 冷涼な気候とミネラル豊富な忠別川の清流を生かして栽培されたブロッコリーです。
+  :jan: 
+  :ingredient_id: 18
+  :commodity_id: 18
+'19':
+  :weight: '300'
+  :price: '29'
+  :producer: 北海道河東郡音更地区
+  :description: 鮮やかな紅色をした肌ツヤのよい人参です。
+  :jan: 
+  :ingredient_id: 19
+  :commodity_id: 19
+'20':
+  :weight: '50'
+  :price: '98'
+  :producer: 千葉県香取郡多古地区
+  :description: ! '品種は「ピー太郎」です。甘味があって食べやすく、お子様でも食べやすいように、と作られました。 '
+  :jan: 
+  :ingredient_id: 20
+  :commodity_id: 20
+'21':
+  :weight: '80'
+  :price: '98'
+  :producer: 山形県西置賜郡白鷹地区
+  :description: 柔らかくて甘い､そして色も鮮やかなアスパラガスです。
+  :jan: 
+  :ingredient_id: 21
+  :commodity_id: 21
+'22':
+  :weight: '150'
+  :price: '196'
+  :producer: 鹿児島県
+  :description: 甘くてホクホク感が味わえるカボチャです。
+  :jan: 
+  :ingredient_id: 22
+  :commodity_id: 22
+'23':
+  :weight: '20'
+  :price: '148'
+  :producer: 北海道札幌地区
+  :description: 葉が平たく、風味が強く独特の甘みがあり、苦味が少ないのが特徴です。
+  :jan: 
+  :ingredient_id: 23
+  :commodity_id: 23
+'24':
+  :weight: '10'
+  :price: '78'
+  :producer: 大分県大分地区
+  :description: 香りが良く、エグミ感が少なく食べ易いです。
+  :jan: 
+  :ingredient_id: 24
+  :commodity_id: 24
+'25':
+  :weight: '200'
+  :price: '29'
+  :producer: 北海道石狩
+  :description: 玉ぞろいが良く、収穫後の日持ちが良いのが特徴です。
+  :jan: 
+  :ingredient_id: 25
+  :commodity_id: 25
+'26':
+  :weight: '200'
+  :price: '129'
+  :producer: フィリピン
+  :description: もっちりした食感とコクのある甘み。栽培方法にこだわってつくられた逸品です。
+  :jan: 
+  :ingredient_id: 26
+  :commodity_id: 26
+'27':
+  :weight: '150'
+  :price: '99'
+  :producer: ニュージーラン
+  :description: 酸味と甘味のバランスがとてもよく、ジューシーな食感です。
+  :jan: 
+  :ingredient_id: 27
+  :commodity_id: 27
+'28':
+  :weight: '40'
+  :price: '179'
+  :producer: 南アフリカ
+  :description: 防カビ剤不使用。アウトスパンブランドの輸入レモンです。
+  :jan: 
+  :ingredient_id: 28
+  :commodity_id: 28
+'29':
+  :weight: '700'
+  :price: '39'
+  :producer: 北海道虻田郡洞爺湖地区
+  :description: みずみずしくボリューム満点のキャベツです。
+  :jan: 
+  :ingredient_id: 29
+  :commodity_id: 29
+'30':
+  :weight: '60'
+  :price: '228'
+  :producer: 鹿児島県曽於郡大崎地区
+  :description: 白肌で肉質は軟らか、香りの良いごぼうです。
+  :jan: 
+  :ingredient_id: 30
+  :commodity_id: 30
+'31':
+  :weight: '80'
+  :price: '58'
+  :producer: 長野県下伊那郡下條地区
+  :description: 大きな卵型、濃い紫色をした「くろわし」という品種の米なすです。
+  :jan: 
+  :ingredient_id: 31
+  :commodity_id: 31
+'32':
+  :weight: '900'
+  :price: '158'
+  :producer: 北海道虻田郡留寿都地区
+  :description: 煮物でも生食でも、様々な用途に合う品種です。
+  :jan: 
+  :ingredient_id: 32
+  :commodity_id: 32
+'33':
+  :weight: '60'
+  :price: '199'
+  :producer: 北海道空知郡上砂川地区
+  :description: 肉厚で軸の部分も柔らかく食べられます。
+  :jan: 
+  :ingredient_id: 33
+  :commodity_id: 33
+'34':
+  :weight: '150'
+  :price: '285'
+  :producer: サクラ印
+  :description: レンゲハチミツ(150g)
+  :jan: 
+  :ingredient_id: 34
+  :commodity_id: 34
+'35':
+  :weight: '200'
+  :price: '29'
+  :producer: 石川県鳳珠郡穴水地区
+  :description: 赤土土壌で育ったホクホクのジャガイモです。
+  :jan: 
+  :ingredient_id: 35
+  :commodity_id: 35
+'36':
+  :weight: '250'
+  :price: '98'
+  :producer: 茨城県行方地区
+  :description: 水はけのよい火山灰土で育ち、ほくほく感と甘みが特徴です。
+  :jan: 
+  :ingredient_id: 36
+  :commodity_id: 36
+'37':
+  :weight: '200'
+  :price: '140'
+  :producer: サトウのごはん
+  :description: 新潟県産こしひかり
+  :jan: 
+  :ingredient_id: 37
+  :commodity_id: 37
+'38':
+  :weight: '300'
+  :price: '105'
+  :producer: 日清フーズ
+  :description: マ・マー スパゲティ1.8mm 300g
+  :jan: 
+  :ingredient_id: 38
+  :commodity_id: 38
+'39':
+  :weight: '500'
+  :price: '168'
+  :producer: 三井製糖
+  :description: スプーン印　上白糖　500g
+  :jan: 
+  :ingredient_id: 39
+  :commodity_id: 39
+'40':
+  :weight: '100'
+  :price: '257'
+  :producer: よつ葉乳業
+  :description: パンにおいしいよつ葉バター【100g】
+  :jan: 
+  :ingredient_id: 40
+  :commodity_id: 40
+'41':
+  :weight: '50'
+  :price: '78'
+  :producer: キューピー
+  :description: マヨネーズ 50g
+  :jan: 
+  :ingredient_id: 41
+  :commodity_id: 41
+'42':
+  :weight: '400'
+  :price: '278'
+  :producer: 日清オイリオ
+  :description: キャノーラ油　400g
+  :jan: 
+  :ingredient_id: 42
+  :commodity_id: 42
