@@ -11,5 +11,13 @@ $ ->
     if(e.keyCode >= 48)
       $('#hoge').append(String.fromCharCode(e.keyCode))
     console.log e
-  $(document).click (e)->
+  invisibleLayer = $('<div>').appendTo('body')
+  invisibleLayer.css
+    width:  $(window).outerWidth()
+    height: $(window).outerHeight()
+    position: 'absolute'
+    top:0
+    left:0
+    zIndex:-1
+  invisibleLayer.click (e)->
     $('#hiddenField').focus()
