@@ -3,14 +3,18 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 #
 $ ->
+  buffer = ""
   $('#hiddenForm').submit (e)->
     e.preventDefault()
 
   $('#hiddenField').focus().keyup (e)->
     e.preventDefault()
-    if(e.keyCode >= 48)
-      $('#hoge').append(String.fromCharCode(e.keyCode))
-    console.log e
+    if e.keyCode >= 48 and e.keyCode <= 57
+      buffer += String.fromCharCode(e.keyCode)
+    else if e.keyCode == 13
+      $('#hoge').append(buffer)
+      buffer = ""
+    console.log e.keyCode
   invisibleLayer = $('<div>').appendTo('body')
   invisibleLayer.css
     width:  $(window).outerWidth()
