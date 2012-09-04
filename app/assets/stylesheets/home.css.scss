@@ -2,13 +2,83 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// color palet http://kuler.adobe.com/#themeID/53361
+
+body {
+  margin:0;
+  padding:0;
+}
 #hiddenForm {
-  opacity: 0.01;
+  opacity: 0.5;
   position: absolute;
   top: 0;
   left: 0;
+  margin:0;
+  padding:0;
   input { 
-    font-size:2px;
-    width:2px;
+    margin:0;
+    padding:0;
+    width:10px;
   }
+}
+#debug {
+}
+#container {
+  width: 1024px;
+  background-color:#E4D0D0;
+  height: 748px;
+  .containerInner {
+    overflow:hidden;
+    height: 724px;
+    width:  236px;
+    margin:12px 0 0 12px;
+    background-color:#CFE8E0;
+    float:left;
+    -webkit-transition-duration: 1s;
+    -webkit-transition-property: width;
+    border-radius:4px;
+    border-width: 0;
+    border-style: solid;
+    .detailView {
+      height: 724px;
+      width:  500px;
+      opacity: 0;
+      -webkit-transition-duration: 1s;
+      -webkit-transition-property: opacity;
+      .list {
+        background-color:#fff;
+        width:100%;
+        .entity{
+          h2 {
+            margin:0;
+            padding:0;
+          }
+          p {
+            margin:0;
+            padding:0;
+          }
+        }
+      }
+    }
+  }
+  .containerInner.open{
+    width:500px;
+    .detailView {
+      opacity: 1
+    }
+  }
+  #recipes{
+    border-color: #fff4aa;
+    background-color: #fff4aa;
+  }
+  #commodities{
+    border-color: #5EDAD1;
+    background-color: #5EDAD1;
+  }
+  #nutritions{
+    border-color: #EF7496;
+    background-color: #EF7496;
+  }
+
+
 }

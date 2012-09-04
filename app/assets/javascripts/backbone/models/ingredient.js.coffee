@@ -4,7 +4,7 @@ class Cart.Models.Ingredient extends Backbone.Model
   defaults:
     name: null
     calorie: null
-    carbohydrates: null
+    carbonhydrates: null
     protein: null
     fat: null
     carotene: null

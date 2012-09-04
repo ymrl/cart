@@ -17,4 +17,5 @@
 //= require backbone_rails_sync
 //= require backbone_datalink
 //= require backbone/cart
+//= require iscroll
 //= require_tree ./backbone/

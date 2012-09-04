@@ -14,10 +14,32 @@ class CommoditiesController < ApplicationController
   # GET /commodities/1.json
   def show
     @commodity = Commodity.find(params[:id])
+    @ingredient = @commodity.ingredient
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @commodity }
+      format.json { render json: {
+        :id            => @commodity.id,
+        :jan           => @commodity.jan,
+        :price         => @commodity.price,
+        :ingredient_id => @commodity.ingredient_id,
+        :weight        => @commodity.weight,
+        :description   => @commodity.description,
+        :created_at    => @commodity.created_at,
+        :updated_at    => @commodity.updated_at,
+        :producer      => @commodity.producer,
+        :name          => @ingredient.name,
+        :calorie       => @ingredient.calorie       * @commodity.weight / 100,
+        :carbohydrates => @ingredient.carbohydrates * @commodity.weight / 100,
+        :protein       => @ingredient.protein       * @commodity.weight / 100,
+        :fat           => @ingredient.fat           * @commodity.weight / 100,
+        :carotene      => @ingredient.carotene      * @commodity.weight / 100,
+        :vitamin_b1    => @ingredient.vitamin_b1    * @commodity.weight / 100,
+        :vitamin_b2    => @ingredient.vitamin_b2    * @commodity.weight / 100,
+        :vitamin_c     => @ingredient.vitamin_c     * @commodity.weight / 100,
+        :calcium       => @ingredient.calcium       * @commodity.weight / 100,
+      } 
+    }
     end
   end
 
@@ -82,6 +104,36 @@ class CommoditiesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to commodities_url }
       format.json { head :no_content }
+    end
+  end
+  def search
+    @commodity = Commodity.find_by_jan(params[:jan])
+    @ingredient = @commodity.ingredient
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: {
+        :id            => @commodity.id,
+        :jan           => @commodity.jan,
+        :price         => @commodity.price,
+        :ingredient_id => @commodity.ingredient_id,
+        :weight        => @commodity.weight,
+        :description   => @commodity.description,
+        :created_at    => @commodity.created_at,
+        :updated_at    => @commodity.updated_at,
+        :producer      => @commodity.producer,
+        :name          => @ingredient.name,
+        :calorie       => @ingredient.calorie       * @commodity.weight / 100,
+        :carbohydrates => @ingredient.carbohydrates * @commodity.weight / 100,
+        :protein       => @ingredient.protein       * @commodity.weight / 100,
+        :fat           => @ingredient.fat           * @commodity.weight / 100,
+        :carotene      => @ingredient.carotene      * @commodity.weight / 100,
+        :vitamin_b1    => @ingredient.vitamin_b1    * @commodity.weight / 100,
+        :vitamin_b2    => @ingredient.vitamin_b2    * @commodity.weight / 100,
+        :vitamin_c     => @ingredient.vitamin_c     * @commodity.weight / 100,
+        :calcium       => @ingredient.calcium       * @commodity.weight / 100,
+      } 
+    }
     end
   end
 end

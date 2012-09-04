@@ -26,6 +26,8 @@ class Tasks::InsertIngredientsAndCommodities
         :description => row[13],
         :jan         => row[14],
       }
+      p ingredient_attributes
+      p commodity_attributes
 
       ingredient = Ingredient.find_by_name(ingredient_attributes[:name])
       if ingredient

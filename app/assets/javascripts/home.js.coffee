@@ -2,20 +2,39 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 #
+window.debug ||= {}
 $ ->
   buffer = ""
+  recipes = new Cart.Collections.RecipesCollection
+  recipesView = new Cart.Views.Recipes.IndexView
+    recipes: recipes
+  $('#recipes').append(recipesView.render().el)
+
+  commodities = new Cart.Collections.CommoditiesCollection
+  commoditiesView = new Cart.Views.Commodities.IndexView
+    commodities: commodities
+  $('#commodities').append(commoditiesView.render().el)
+
+
   $('#hiddenForm').submit (e)->
     e.preventDefault()
+    commodities.addJan $('#hiddenField').val(),(collection,data)->
+      collection.get(data.id).searchRecipes (collection,data)->
+        for recipe in collection.models
+          exist = recipes.get(recipe.id)
+          if exist
+            exist.set('count',exist.get('count') + 1)
+          else
+            recipes.add(recipe)
+            recipesView.addOne(recipe)
+      
+    $('#hiddenField').val('')
 
-  $('#hiddenField').focus().keyup (e)->
-    e.preventDefault()
-    if e.keyCode >= 48 and e.keyCode <= 57
-      buffer += String.fromCharCode(e.keyCode)
-    else if e.keyCode == 13
-      $('#hoge').append(buffer)
-      buffer = ""
-    console.log e.keyCode
-  invisibleLayer = $('<div>').appendTo('body')
+  window.debug.commodities = commodities
+  window.debug.recipes     = recipes
+  
+
+  invisibleLayer = $('<div>').appendTo('body').attr('id','invisibleLayer')
   invisibleLayer.css
     width:  $(window).outerWidth()
     height: $(window).outerHeight()
@@ -23,5 +42,19 @@ $ ->
     top:0
     left:0
     zIndex:-1
-  invisibleLayer.click (e)->
+  $('#container').click (e)->
     $('#hiddenField').focus()
+  $('#container .containerInner').click (e)->
+    t = $(@)
+    if !t.hasClass('open')
+      $('.open').removeClass('open')
+      t.addClass('open')
+  $('.addBeef').click (e)->
+    e.preventDefault()
+    $('#hiddenField').val('2965774627489')
+    $('#hiddenForm').submit()
+  $('.addCarot').click (e)->
+    e.preventDefault()
+    $('#hiddenField').val('2946794717442')
+    $('#hiddenForm').submit()
+

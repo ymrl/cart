@@ -1,4 +1,5 @@
 class Commodity < ActiveRecord::Base
+  include CommoditiesHelper
   belongs_to :ingredient
   attr_accessible :description, :jan, :price, :weight, :ingredient, :ingredient_id,:producer
   validates :price, :presence => true
@@ -20,15 +21,9 @@ class Commodity < ActiveRecord::Base
         else
           num = (rand * 10).to_i
         end
-
         str += num.to_s
-        if i % 2 == 0
-          even += num
-        else
-          odd += num
-        end
       end
-      str += ((even * 3 + odd) % 10).to_s
+      str += jancode_check(str).to_s
       self.jan = str
     end
   end

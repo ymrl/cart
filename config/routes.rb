@@ -8,9 +8,14 @@ Cart::Application.routes.draw do
     end
   end
 
-  resources :commodities
+  resources :commodities do
+    collection do
+      get 'search'
+    end
+  end
 
   resources :ingredients
+
 
   get 'search' , :controller => 'search', :action => 'index'
   root :controller => :home, :action => :index
