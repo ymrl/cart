@@ -3,10 +3,22 @@ class CommoditiesController < ApplicationController
   # GET /commodities.json
   def index
     @commodities = Commodity.includes(:ingredient).all
-
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @commodities }
+      format.json { render json: @commodities.map{|e|
+          { :id            => e.id,
+            :jan           => e.jan,
+            :price         => e.price,
+            :ingredient_id => e.ingredient_id,
+            :weight        => e.weight,
+            :description   => e.description,
+            :created_at    => e.created_at,
+            :updated_at    => e.updated_at,
+            :producer      => e.producer,
+            :name          => e.ingredient.name
+        }
+      }
+    }
     end
   end
 
