@@ -6,7 +6,9 @@ class Cart.Views.Recipes.RecipeView extends Backbone.View
   events:
     "click .destroy" : "destroy"
 
-  tagName: "tr"
+  initialize: (option)->
+    super(option)
+    @model.bind 'change',@render
 
   destroy: () ->
     @model.destroy()
@@ -14,6 +16,6 @@ class Cart.Views.Recipes.RecipeView extends Backbone.View
 
     return false
 
-  render: ->
+  render: =>
     $(@el).html(@template(@model.toJSON() ))
     return this
