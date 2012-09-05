@@ -43,3 +43,4 @@ gem 'mechanize','~> 2.5.1', :require => false
 
 # To use debugger
 # gem 'debugger'
+gem 'thin', :require => false
