@@ -32,6 +32,8 @@ $ ->
 
   window.debug.commodities = commodities
   window.debug.recipes     = recipes
+  window.debug.recipesView = recipesView
+  window.debug.commoditiesView = commoditiesView
   
 
   invisibleLayer = $('<div>').appendTo('body').attr('id','invisibleLayer')
@@ -42,9 +44,9 @@ $ ->
     top:0
     left:0
     zIndex:-1
-  $('#container').click (e)->
+  $('#content').click (e)->
     $('#hiddenField').focus()
-  $('#container .containerInner').click (e)->
+  $('#content .containerInner').click (e)->
     t = $(@)
     if !t.hasClass('open')
       $('.open').removeClass('open')
@@ -60,4 +62,13 @@ $ ->
     if v != "none"
       $('#hiddenField').val($('#debugSelectIngredient').val())
       $('#hiddenForm').submit()
+  $('#randomAdd').click (e)->
+    console.log(e)
+    e.preventDefault()
+    opt = $('#debugSelectIngredient option')
+    v = opt.eq(Math.floor((opt.length-1) * Math.random())+1).val()
+    $('#hiddenField').val(v)
+    console.log(v)
+    $('#hiddenForm').submit()
+    
 

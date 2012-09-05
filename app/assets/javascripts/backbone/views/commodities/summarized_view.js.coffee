@@ -1,7 +1,7 @@
 Cart.Views.Commodities ||= {}
 
-class Cart.Views.Commodities.IndexView extends Backbone.View
-  template: JST["backbone/templates/commodities/index"]
+class Cart.Views.Commodities.SummerizedView extends Backbone.View
+  template: JST["backbone/templates/commodities/summarized"]
 
   initialize: () ->
     @options.commodities.bind('reset', @addAll)
@@ -11,12 +11,13 @@ class Cart.Views.Commodities.IndexView extends Backbone.View
 
   addOne: (commodity) =>
     view = new Cart.Views.Commodities.CommodityView({model : commodity})
-    @$el.find(".detailView .list").append(view.render().el)
+    @$("ul").append(view.render().el)
     if @scroll then @scroll.refresh()
   render: =>
     $(@el).html(@template(commodities: @options.commodities.toJSON() ))
     @addAll()
-    @scroll = new iScroll(@$el.find(".detailView").get(0))
-    @scroll.refresh()
+#    @scroll = new iScroll(@$el.get(0))
+#    @scroll.refresh()
 
     return this
+

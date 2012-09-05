@@ -1,16 +1,20 @@
 <form action="/" id="hiddenForm">
   <input id="hiddenField"></input>
 </form>
-<div id="container">
+<div id="content">
   <div id="recipes"     class="containerInner"></div>
   <div id="commodities" class="containerInner open"></div>
-  <div id="nutritions"  class="containerInner">&nbsp;</div>&nbsp;
+	<div id="nutritions"  class="containerInner">&nbsp;</div>
+	&nbsp;
 </div>
+
 <div id="debug">
   <form id="debugForm">
     <select name="ingredient" id="debugSelectIngredient">
       <option value="none">商品を選択 </option>
     </select>
     <input type="submit" value="追加" />
+    <button id="randomAdd">適当に追加</button>
   </form>
 </div>
+
