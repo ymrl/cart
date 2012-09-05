@@ -50,15 +50,6 @@ $ ->
       $('.open').removeClass('open')
       t.addClass('open')
 
-  $('.addBeef').click (e)->
-    e.preventDefault()
-    $('#hiddenField').val('2965774627489')
-    $('#hiddenForm').submit()
-  $('.addCarot').click (e)->
-    e.preventDefault()
-    $('#hiddenField').val('2946794717442')
-    $('#hiddenForm').submit()
-
   $.getJSON '/commodities',{},(data)->
     for i in data
       $('<option>').text(i.name).val(i.jan).appendTo($('#debugSelectIngredient'))
