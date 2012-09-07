@@ -15,6 +15,9 @@ $ ->
     commodities: commodities
   $('#commodities').append(commoditiesView.render().el)
 
+  nutritionView = new Cart.Views.Nutrition.IndexView
+    commodities: commodities
+  $('#nutrition').append(nutritionView.render().el)
 
   $('#hiddenForm').submit (e)->
     e.preventDefault()
