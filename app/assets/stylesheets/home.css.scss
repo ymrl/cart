@@ -4,10 +4,8 @@
 
 // color palet http://kuler.adobe.com/#themeID/53361
 
-body {
-  margin:0;
-  padding:0;
-}
+//oyakusoku
+body { margin:0; padding:0; }
 #hiddenForm {
   opacity: 0.5;
   position: absolute;
@@ -28,121 +26,164 @@ body {
 	z-index:100;
 	background-color:rgba(255,255,255,0.5);
 }
+
+// Layout 3-column
 #content {
   width: 1024px;
   background-color:#E4D0D0;
   height: 748px;
-
-  .containerInner {
-    overflow:hidden;
+	.containerInner {
     height: 716px;
     width:  224px;
     margin: 12px 0 0 12px;
-    background-color:#CFE8E0;
     float:left;
-    -webkit-transition-duration: 1s;
-    -webkit-transition-property: width;
     border-width: 4px;
     border-style: solid;
 		position:relative;
-
+    overflow:hidden;
+    -webkit-transition-duration: 1s;
+    -webkit-transition-property: width;
     .detailView {
-			position: absolute;
-			top: 0;
-			left: 0;
-      height: 724px;
-      width:  500px;
       opacity: 0;
-      -webkit-transition-duration: 1s;
-      -webkit-transition-property: opacity;
+			position:absolute;
+			top:0;
+			left:0;
 			z-index:10;
-      .list {
-        background-color:#fff;
-        width:100%;
-        .entity{
-          h2 {
-            margin:0;
-            padding:0;
-          }
-          p {
-            margin:0;
-            padding:0;
-          }
-        }
-      }
+			-webkit-transition-duration: 1s;
+			-webkit-transition-property: opacity;
+			width:500px;
     }
-		.summarizedView{
-			position: absolute;
-			top: 0;
-			left: 0;
-      height: 724px;
-      width:  500px;
-			z-index:5;
+    .summarizedView {
 			opacity:1;
-		}
-  }
+			position:absolute;
+			top:0;
+			left:0;
+			z-index:5;
+			-webkit-transition-duration: 1s;
+			-webkit-transition-property: opacity;
+    }
+	}
   .containerInner.open{
     width:500px;
     .detailView {
       opacity: 1;
     }
     .summarizedView {
-			opacity:0;
+ 	   opacity:0;
     }
-  }
-
-  #recipes{
-    border-color: #fff4aa;
-    background-color: #fff4aa;
-  }
-  #commodities{
-    border-color: #5EDAD1;
-    background-color: #5EDAD1;
-  }
-  #nutritions{
-    border-color: #EF7496;
-    background-color: #EF7496;
-  }
+	}
 }
-.recipePhotos {
-	position:relative;
-	height: 724px;
-	width:  500px;
-	.recipePhoto {
-		position:absolute;
-		top:0;
-		left:0;
-		height: 724px;
-		width:  500px;
-		opacity:0;
-    -webkit-transition-duration: 0.3s;
-    -webkit-transition-property: opacity;
-		.image{
-			//-webkit-animation-name : yure;
-			//-webkit-animation-iteration-count:infinite;
-			//-webkit-animation-duration: 8s;
-			//-webkit-animation-direction:alternate;
-			//-webkit-animation-timing-function:linear;
-			position:absolute;
-			top:0;
-			left:0;
-			height: 724px;
-			width:  500px;
-			background-size:cover;
-			background-position:90% 50%;
+
+//inner style
+#content{
+	.containerInner {
+		position:relative;
+		h1{
+			font: bold 22px sans-serif;
+			text-shadow:1px 1px 1px #fff;
+			text-align:center;
+			height:30px;
+			margin:0;
+			padding:8px 0 0 0;
 		}
-		.info{
-			position:absolute;
-			bottom:0;
-			left:0;
-			width:  492px;
-			padding: 4px;
-			background-color:rgba(0,0,0,0.6);
-			color:#fff;
+		.listWrapper{
+			position:relative;
+			height: 678px;
+			width:500px;
+			background-color:#fff;
+			.entity {
+				width:480px;
+				padding:10px 5px;
+				margin:auto;
+				border-bottom:2px solid #666;
+				clear:both;
+				h2{
+					margin:0;
+					padding:0;
+				}
+				p {
+					margin:0;
+					padding:0;
+				}
+			}
 		}
 	}
 }
-@-webkit-keyframes yure {
-	0% {-webkit-transform:translateX(-60%);}
-	100%{-webkit-transform:traslateX(-100%);}
+
+
+#recipes {
+  border-color: #fff4aa;
+  background-color: #fff4aa;
+	color:#403D2A;
+	.detailView{
+		.listWrapper {
+			.entity {
+				.image {
+					width:160px;
+					float:right;
+				  img {
+						width:160px;
+					}
+				}
+			}
+		}
+	}
+
+	.recipePhotos {
+		position:relative;
+		height: 716px;
+		width:  500px;
+		.recipePhoto {
+			position:absolute;
+			top:0;
+			left:0;
+			height: 716px;
+			width:  500px;
+			opacity:0;
+			-webkit-transition-duration: 0.3s;
+			-webkit-transition-property: opacity;
+			.image{
+				position:absolute;
+				top:0;
+				left:0;
+				height: 716px;
+				width:  500px;
+				background-size:cover;
+				background-position:90% 50%;
+			}
+			.info{
+				position:absolute;
+				bottom:0;
+				left:0;
+				width:  492px;
+				padding: 4px;
+				background-color:rgba(0,0,0,0.6);
+				color:#fff;
+			}
+		}
+	}
+}
+
+#commodities{
+  border-color: #5EDAD1;
+  background-color: #5EDAD1;
+	color:#265B57;
+	.detailView{
+		.listWrapper {
+			.entity {
+				.num{
+					width:160px;
+					text-align:right;
+					float:right;
+				}
+				.info {
+				}
+			}
+		}
+	}
+}
+
+#nutrition{
+  border-color: #EF7496;
+  background-color: #EF7496;
 }

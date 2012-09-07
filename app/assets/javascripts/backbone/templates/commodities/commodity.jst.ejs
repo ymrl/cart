@@ -1,6 +1,22 @@
 <div class="commodityDetaiil entity">
+	<div class="num">
+		<div class="price"><%= price %>円</div>
+		<div class="count"><%= count %>個</div>
+	</div>
 	<h2><%= name %></h2>
-	<div class="price"><%= price %></div>
 	<div class="description"><p><%= description %></p></div>
-	<div class="count"><%= count %></div>
+	<div class="info" style="display:none;">
+		<ul class="commodityNutrition">
+			<li>生産地：<%= producer %></li>
+			<li>カロリー：<%= calorie %>kcal</li>
+      <li>炭水化物：<%= carbohydrates %>g</li>
+      <li>タンパク質：<%= protein %>g</li>
+      <li>脂質：<%= fat %>g</li>
+      <li>カロテン：<%= carotene %>μg</li>
+      <li>ビタミンB1：<%= vitamin_b1 %>mg</li>
+      <li>ビタミンB2：<%= vitamin_b2 %>mg</li>
+      <li>ビタミンC：<%= vitamin_c %>mg</li>
+      <li>カルシウム：<%= calcium %>mg</li>
+		</ul>
+	</div>
 </div>

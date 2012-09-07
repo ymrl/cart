@@ -6,6 +6,7 @@ class Cart.Views.Recipes.PhotoView extends Backbone.View
   initialize: () ->
     @options.recipes.bind('reset', @addAll)
     @options.recipes.bind('add',@addBinder)
+    @options.recipes.bind('remove',@render)
     @views = []
     @showing = 0
     setInterval(@change,5000)

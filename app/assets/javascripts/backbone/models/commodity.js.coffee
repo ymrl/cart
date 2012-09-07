@@ -29,3 +29,20 @@ class Cart.Collections.CommoditiesCollection extends Backbone.Collection
         jan: jan
       success: (collection,data)=>
         if callback then callback.call(@,collection,data)
+      add:true
+  getNutrition:()=>
+    ret =
+      calorie       : 0
+      carbohydrates : 0
+      protein       : 0
+      fat           : 0
+      carotene      : 0
+      vitamin_b1    : 0
+      vitamin_b2    : 0
+      vitamin_c     : 0
+      calcium       : 0
+    for model in @models
+      for i of ret
+        ret[i] += model.get(i)
+    return ret
+

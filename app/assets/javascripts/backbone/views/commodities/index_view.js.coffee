@@ -5,6 +5,10 @@ class Cart.Views.Commodities.IndexView extends Backbone.View
 
   initialize: () ->
     @options.commodities.bind('reset', @addAll)
+    @options.commodities.bind('add',@addOne)
+    @options.commodities.bind('remove',@render)
+    @summarizedView = new Cart.Views.Commodities.SummarizedView
+      commodities: @options.commodities
 
   addAll: () =>
     @options.commodities.each(@addOne)
@@ -12,11 +16,13 @@ class Cart.Views.Commodities.IndexView extends Backbone.View
   addOne: (commodity) =>
     view = new Cart.Views.Commodities.CommodityView({model : commodity})
     @$el.find(".detailView .list").append(view.render().el)
+    view.bind('changeSize', =>if @scroll then @scroll.refresh() )
     if @scroll then @scroll.refresh()
   render: =>
     $(@el).html(@template(commodities: @options.commodities.toJSON() ))
     @addAll()
-    @scroll = new iScroll(@$el.find(".detailView").get(0))
+    @$el.find('.summarizedView').append(@summarizedView.render().el)
+    @scroll = new iScroll(@$el.find(".listWrapper").get(0))
     @scroll.refresh()
 
     return this

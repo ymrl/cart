@@ -27,6 +27,15 @@ $ ->
           else
             recipes.add(recipe)
             recipesView.addOne(recipe)
+      collection.get(data.id).bind 'remove',(commodity,collection,data)->
+        console.log('remove',commodity,collection)
+        for recipe in commodity.recipes.models
+          console.log(recipe)
+          count = recipe.get('count')
+          if(count > 1)
+            recipe.set('count',count - 1)
+          else
+            recipes.remove(recipe)
       
     $('#hiddenField').val('')
 

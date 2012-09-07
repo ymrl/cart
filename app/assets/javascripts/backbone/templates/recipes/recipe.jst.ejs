@@ -1,7 +1,15 @@
 <div class="recipeDetail entity">
+	<div class="image"><img src="<%= image %>" /></div>
 	<h2><%= title %></h2>
-	<div class="calorie"><%=calorie %></div>
+	<div class="calorie"><%= calorie === 0 ? '- ' : calorie %>kcal</div>
 	<div class="time"><%= time %></div>
 	<div class="count"><%= count %></div>
+	<div class="info" style="display:none;">
+		<ul class="recipeMaterials">
+			<% for(var i=0;i<materials.length;i++){ %>
+				<li><%= materials[i].name %> <%= materials[i].amount%></li>
+			<% } %>
+		</ul>
+	</div>
 </div>
 
