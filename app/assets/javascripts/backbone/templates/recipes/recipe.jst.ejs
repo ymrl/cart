@@ -4,12 +4,17 @@
 	<div class="calorie"><%= calorie === 0 ? '- ' : calorie %>kcal</div>
 	<div class="time"><%= time %></div>
 	<div class="count"><%= count %></div>
+	<div class="control">
+		<button class="expand">▼</button>
+	</div>
+
 	<div class="info" style="display:none;">
 		<ul class="recipeMaterials">
 			<% for(var i=0;i<materials.length;i++){ %>
 				<li><%= materials[i].name %> <%= materials[i].amount%></li>
 			<% } %>
 		</ul>
+		<a href="http://erecipe.woman.excite.co.jp<%= url %>" target="_blank">レシピをみる</a>
 	</div>
 </div>
 

@@ -8,10 +8,13 @@ class Cart.Views.Recipes.RecipeView extends Backbone.View
     "click" : "openClose"
 
   openClose: (e)=>
+    @$el.find('.expand').text(if @expand then '▼' else '▲')
     @$el.find('.info').slideToggle 'normal', => @trigger('changeSize')
+    @expand = !@expand
   initialize: (option)->
     super(option)
     @model.bind 'change',@render
+    @expand = false
 
   destroy: () ->
     @model.destroy()

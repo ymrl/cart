@@ -13,9 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore
+//= require iscroll
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink
 //= require backbone/cart
-//= require iscroll
-//= require_tree ./backbone/
+//= require_tree .
