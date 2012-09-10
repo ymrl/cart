@@ -21,6 +21,9 @@ $ ->
 
   $('#hiddenForm').submit (e)->
     e.preventDefault()
+    $('#content').addClass('attention')
+    setTimeout (->$('#content').removeClass 'attention'),1
+
     commodities.addJan $('#hiddenField').val(),(collection,data)->
       collection.get(data.id).searchRecipes (collection,data)->
         for recipe in collection.models
@@ -46,22 +49,31 @@ $ ->
   window.debug.recipesView = recipesView
   window.debug.commoditiesView = commoditiesView
   
-
-  invisibleLayer = $('<div>').appendTo('body').attr('id','invisibleLayer')
-  invisibleLayer.css
-    width:  $(window).outerWidth()
-    height: $(window).outerHeight()
-    position: 'absolute'
-    top:0
-    left:0
-    zIndex:-1
-  $('#content').click (e)->
-    $('#hiddenField').focus()
-  $('#content .containerInner').click (e)->
-    t = $(@)
-    if !t.hasClass('open')
-      $('.open').removeClass('open')
-      t.addClass('open')
+  touching = null
+  if navigator.userAgent.match(/iPad/)
+    $('#content .containerInner').bind 'touchstart',(e)->
+      target = $(this)
+      touching = target.attr('id')
+    $('.containerInner').bind 'touchend',(e)->
+      target = $(this)
+      id = target.attr('id')
+      if id is touching
+        if !target.hasClass('open')
+          $('.open').removeClass('open')
+          target.addClass('open')
+      touching = null
+      $('#hiddenField').focus()
+    $('#content').bind 'touchend',(e)->
+      $('#hiddenField').focus()
+  else
+    $('#content .containerInner').bind 'click',(e)->
+      touching = 
+      t = $(@)
+      if !t.hasClass('open')
+        $('.open').removeClass('open')
+        t.addClass('open')
+    $('#content').click (e)->
+      $('#hiddenField').focus()
 
   $.getJSON '/commodities',{},(data)->
     for i in data

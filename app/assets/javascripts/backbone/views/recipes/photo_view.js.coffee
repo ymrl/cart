@@ -9,7 +9,7 @@ class Cart.Views.Recipes.PhotoView extends Backbone.View
     @options.recipes.bind('remove',@render)
     @views = []
     @showing = 0
-    setInterval(@change,5000)
+    @interval = null
 
   addBinder: ()=>
     for i in @options.recipes.models
@@ -23,6 +23,8 @@ class Cart.Views.Recipes.PhotoView extends Backbone.View
       model: recipe
     @$el.find('.recipePhotos').append(view.render().el)
     view.$el.addClass("recipePhoto#{recipe.id}")
+    if @options.recipes.length > 0
+      @$el.find('.recipePhotos').addClass('hasRecipes')
   change: ()=>
     photos = @$el.find('.recipePhoto')
     if photos.length == 0 then return
@@ -33,7 +35,14 @@ class Cart.Views.Recipes.PhotoView extends Backbone.View
     photos.eq(@showing).css 'opacity',0
     @showing = next
   render: =>
+    if @interval 
+      window.clearInterval(@interval)
     $(@el).html(@template())
+
     @addAll()
+    @change()
+    if @options.recipes.length > 0
+      @$el.find('.recipePhotos').addClass('hasRecipes')
+    @interval = window.setInterval(@change,5000)
 
     return this

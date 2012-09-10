@@ -38,12 +38,32 @@ class Cart.Views.Nutrition.IndexView extends Backbone.View
   render: =>
     @nutrition = @options.commodities.getNutrition()
     data = @prepare()
+    advise = null
+    title = null
+    if @options.commodities.length == 0
+      advise = Cart.Constants.Messages.start
+      title = 'いらっしゃいませ'
+    else if data[0].contain < 1
+      advise = Cart.Constants.Messages[data[0].nutrition]
+      lack = []
+      for i in data
+        if i.contain < 1
+          lack.push(i)
+        else
+          break
+      title = "#{lack.join('・')}が不足しています"
+    else
+      advise =  Cart.Constants.Messages.perfect
+      title = "十分な栄養が取れそうです"
+
     html = @template
       nutrition: @nutrition
       constant: Cart.Constants.Nutrition
       data:     data
       people:   @people
       times:    @times
+      advise:   advise
+      title:    title
     $(@el).html(html)
 
     return this

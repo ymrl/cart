@@ -5,7 +5,7 @@ class Cart.Views.Recipes.RecipeView extends Backbone.View
 
   events:
     #"click .destroy" : "destroy"
-    "click" : "openClose"
+    "click .expand" : "openClose"
 
   openClose: (e)=>
     @$el.find('.expand').text(if @expand then '▼' else '▲')

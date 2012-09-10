@@ -25,12 +25,16 @@ class Cart.Views.Recipes.IndexView extends Backbone.View
     view.bind('changeSize', =>if @scroll then @scroll.refresh() )
     @views.push view
     if @scroll then @scroll.refresh()
+    @$el.find('.holder').hide()
 
   render: =>
     @views = []
     $(@el).html(@template(recipes: @options.recipes.toJSON() ))
     @addAll()
     @sort()
+    if @options.recipes.length == 0
+      @$el.find('.holder').show()
+
     @$el.find('.summarizedView').append(@photoView.render().el)
     @scroll = new iScroll(@$(".listWrapper").get(0))
     @scroll.refresh()
