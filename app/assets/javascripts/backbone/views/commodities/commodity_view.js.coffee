@@ -5,12 +5,20 @@ class Cart.Views.Commodities.CommodityView extends Backbone.View
 
   events:
     #"click .destroy" : "destroy"
-    "click" : "openClose"
+    "click .expand" : "openClose"
+    "click .remove": "remove"
+
+  remove: (e)=>
+    console.log @model
+    @model.collection.remove(@model)
   openClose: (e)=>
+    @$el.find('.expand').text(if @expand then '▼' else '▲')
     @$el.find('.info').slideToggle 'normal', => @trigger('changeSize')
+    @expand = !@expand
   initialize: (option)->
     super(option)
     @model.bind 'change',@render
+    @expand = false
 
 
   render: =>

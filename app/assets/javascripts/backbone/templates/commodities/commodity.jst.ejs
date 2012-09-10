@@ -4,8 +4,8 @@
 		<div class="count"><%= count %>個</div>
 	</div>
 	<h2><%= name %></h2>
-	<div class="description"><p><%= description %></p></div>
 	<div class="info" style="display:none;">
+		<div class="description"><p><%= description %></p></div>
 		<ul class="commodityNutrition">
 			<li>生産地：<%= producer %></li>
 			<li>カロリー：<%= calorie %>kcal</li>
@@ -18,5 +18,11 @@
       <li>ビタミンC：<%= vitamin_c %>mg</li>
       <li>カルシウム：<%= calcium %>mg</li>
 		</ul>
+	</div>
+	<div class="control">
+		<button class="expand">▼</button>
+		<button class="remove">削除</button>
+		<button class="plus">増やす</button>
+		<button class="minus">減らす</button>
 	</div>
 </div>

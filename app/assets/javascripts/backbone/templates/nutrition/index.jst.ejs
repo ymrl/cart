@@ -1,16 +1,22 @@
+<h1>ヘルシー情報</h1>
 <div class="detailView">
-	<h1>あなたへの情報</h1>
 	<div class="configuration">
-		<form>
-			<label for="people">家族の人数</label><input type="number" name="people" value="4"/>
+		<form id="configForm">
+			家族の人数
+			<input type="number" name="people" value="<%= people %>" min="1" id="people"/>
+			×
+			<input type="number" name="times" value="<%= times %>" min="1"id="times"/>食分
 		</form>
-		<div>
-			<ul>
-			<% for(var i=0;i<data.length;i++){ %>
-				<li><%= constant[data[i].nutrition].name %> <%= data[i].contain * 100 %> %</li>
-			<% } %>
-			</ul>
-		</div>
+	</div>
+	<div class="nutritionData">
+		<ul>
+		<% for(var i=0;i<data.length;i++){ %>
+			<li>
+			<span class="name"><%= constant[data[i].nutrition].name %></span>
+			<span class="percent"><%= Math.round(data[i].contain * 10000) / 100 %> %</span>
+			</li>
+		<% } %>
+		</ul>
 	</div>
 </div>
 <div class="summarizedView"></div>

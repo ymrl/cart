@@ -20,7 +20,9 @@ class Cart.Collections.CommoditiesCollection extends Backbone.Collection
   addJan: (jan,callback)=>
     for i in @models
       if i.get('jan') is jan
-        return i.set 'count',i.get('count') + 1
+        i.set 'count',i.get('count') + 1
+        @trigger('change')
+        return i
     @searchByJan(jan,callback)
   searchByJan: (jan,callback)=>
     @fetch
@@ -29,7 +31,13 @@ class Cart.Collections.CommoditiesCollection extends Backbone.Collection
         jan: jan
       success: (collection,data)=>
         if callback then callback.call(@,collection,data)
+        collection.get(data.id).collection = collection
       add:true
+  getTotalPrice:()=>
+    total = 0
+    for i in @models
+      total += i.get('price') * i.get('count')
+    return total
   getNutrition:()=>
     ret =
       calorie       : 0
@@ -42,7 +50,8 @@ class Cart.Collections.CommoditiesCollection extends Backbone.Collection
       vitamin_c     : 0
       calcium       : 0
     for model in @models
+      count = model.get('count')
       for i of ret
-        ret[i] += model.get(i)
+        ret[i] += model.get(i) * count
     return ret
 

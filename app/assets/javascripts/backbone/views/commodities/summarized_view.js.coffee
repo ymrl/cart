@@ -5,7 +5,7 @@ class Cart.Views.Commodities.SummarizedView extends Backbone.View
 
   initialize: () ->
     @options.commodities.bind('reset', @addAll)
-    @options.commodities.bind('add',@render)
+    @options.commodities.bind('add',@addOne)
     @options.commodities.bind('remove',@render)
 
   addAll: () =>

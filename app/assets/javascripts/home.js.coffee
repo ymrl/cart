@@ -31,14 +31,13 @@ $ ->
             recipes.add(recipe)
             recipesView.addOne(recipe)
       collection.get(data.id).bind 'remove',(commodity,collection,data)->
-        console.log('remove',commodity,collection)
         for recipe in commodity.recipes.models
-          console.log(recipe)
           count = recipe.get('count')
           if(count > 1)
             recipe.set('count',count - 1)
           else
             recipes.remove(recipe)
+        recipes.trigger('changeAndRemove')
       
     $('#hiddenField').val('')
 
@@ -75,12 +74,10 @@ $ ->
       $('#hiddenField').val($('#debugSelectIngredient').val())
       $('#hiddenForm').submit()
   $('#randomAdd').click (e)->
-    console.log(e)
     e.preventDefault()
     opt = $('#debugSelectIngredient option')
     v = opt.eq(Math.floor((opt.length-1) * Math.random())+1).val()
     $('#hiddenField').val(v)
-    console.log(v)
     $('#hiddenForm').submit()
     
 
