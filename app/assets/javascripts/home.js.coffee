@@ -16,8 +16,6 @@ $ ->
 
   $('#commodities').append(commoditiesView.render().el)
 
-
-
   readJan = (jan)->
     commodities.addJan jan,(collection,data)->
       collection.get(data.id).searchRecipes (collection,data)->
@@ -108,3 +106,6 @@ $ ->
     $('#hiddenField').val(v)
     $('#hiddenForm').submit()
   $('div').live('click',(e)->$('#hiddenField').focus())
+  $('body').bind 'touchstart',(e)->$('#hiddenField').focus();e.preventDefault()
+  $('body').bind 'touchmove' ,(e)->$('#hiddenField').focus();e.preventDefault()
+  $('body').bind 'touchend'  ,(e)->$('#hiddenField').focus();e.preventDefault()
