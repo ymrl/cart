@@ -65,13 +65,15 @@ class Cart.Views.Nutrition.IndexView extends Backbone.View
     data = @prepare()
     advise = null
     title = null
+    most = if data[0].nutrition == 'calorie' then data[1] else data[0]
+
     if @options.commodities.length == 0
       advise = Cart.Constants.Messages.start
       title = 'いらっしゃいませ'
       @suggestionView.getData('start')
-    else if data[0].contain < 1
-      advise = Cart.Constants.Messages[data[0].nutrition]
-      @suggestionView.getData(data[0].nutrition)
+    else if most.contain < 1
+      advise = Cart.Constants.Messages[most.nutrition]
+      @suggestionView.getData(most.nutrition)
       lack = []
       for i in data
         if i.contain < 1
