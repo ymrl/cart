@@ -6,7 +6,9 @@ class Cart.Views.Recipes.IndexView extends Backbone.View
   initialize: () ->
     @options.recipes.bind('reset', @addAll)
     @options.recipes.bind('change',@sort)
+    @options.recipes.bind('add',@addOne)
     @options.recipes.bind('changeAndRemove',@render)
+    @options.recipes.bind('remove',@render)
     @views = []
     @photoView = new Cart.Views.Recipes.PhotoView
       recipes: @options.recipes
@@ -34,7 +36,6 @@ class Cart.Views.Recipes.IndexView extends Backbone.View
     @sort()
     if @options.recipes.length == 0
       @$el.find('.holder').show()
-
     @$el.find('.summarizedView').append(@photoView.render().el)
     @scroll = new iScroll(@$(".listWrapper").get(0))
     @scroll.refresh()

@@ -82,7 +82,7 @@ class RecipesController < ApplicationController
   end
 
   def search
-    @recipes = Recipe.includes(:materials).joins(:ingredients).where('ingredients.id'=>params[:ingredient_id])
+    @recipes = Recipe.includes(:materials).joins(:ingredients).where('ingredients.id'=>params[:ingredient_id]).limit(20)
     respond_to do |format|
       format.json { render json: @recipes ,:include=> :materials}
     end

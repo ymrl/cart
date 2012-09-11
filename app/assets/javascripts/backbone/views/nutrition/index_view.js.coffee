@@ -43,6 +43,7 @@ class Cart.Views.Nutrition.IndexView extends Backbone.View
     @options.commodities.bind('reset', @render)
     @options.commodities.bind('add',@render)
     @options.commodities.bind('change',@render)
+    @options.commodities.bind('remove',@render)
     @people = 4
     @times  = 1
     @suggestionView = new Cart.Views.Nutrition.SuggestionView

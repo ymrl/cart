@@ -26,16 +26,16 @@ class Cart.Views.Recipes.PhotoView extends Backbone.View
     if @options.recipes.length > 0
       @$el.find('.recipePhotos').addClass('hasRecipes')
   change: ()=>
-    photos = @$el.find('.recipePhoto')
-    if photos.length == 0 then return
-    next = @showing
-    while next == @showing
-      next = Math.floor(Math.random() * photos.length)
-    photos.eq(next).css 'opacity',1
-    photos.eq(@showing).css 'opacity',0
+    @$el.find('recipePhoto').css('opacity',0)
+    if @options.recipes.length == 0 then return
+    #next = @showing
+    #while next == @showing
+    next = Math.floor(Math.random() * @options.recipes.length)
+    @$el.find(".recipePhoto#{@options.recipes.models[next].id}").css 'opacity',1
+    #@$el.find(".recipePhoto#{@options.recipes.models[@showing].id}").css 'opacity',0
     @showing = next
   render: =>
-    if @interval 
+    if @interval
       window.clearInterval(@interval)
     $(@el).html(@template())
 

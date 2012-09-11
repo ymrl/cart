@@ -104,10 +104,11 @@ body {
 	.containerInner {
 		button{
 			border:1px solid #ccc;
-			padding:4px;
+			padding:2px;
+      font-size:16px;
 			border-radius:8px;
 			height:28px;
-      width:48px;
+      width:65px;
       background-color:#fff;
 		}
 		position:relative;
@@ -174,6 +175,10 @@ body {
     border-color: #fff4aa;
     background-color: #fff4aa;
   	color:#403D2A;
+    button{
+      color:#403D2A;
+      border-color:#BFB67E;
+    }
   	.detailView{
   		.listWrapper {
   			.entity {
@@ -244,6 +249,10 @@ body {
     border-color: #5EDAD1;
     background-color: #5EDAD1;
   	color:#265B57;
+    button{
+      color:#265B57;
+      border-color:#60E7DE;
+    }
   	.total{
   		margin:0;
   		padding:0;
@@ -346,6 +355,11 @@ body {
   		}
       .changeValues {
         margin: 4px 0 0;
+      }
+      .configValue {
+        margin: 0 10px;
+        padding: 2px 4px;
+        background-color:#F3DCDC;
       }
   	}
   	.nutritionData{

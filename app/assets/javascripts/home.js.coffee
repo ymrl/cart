@@ -13,18 +13,43 @@ $ ->
   commodities = new Cart.Collections.CommoditiesCollection
   commoditiesView = new Cart.Views.Commodities.IndexView
     commodities: commodities
-  oldItems = JSON.parse(localStorage.getItem('commodities'))
-  if oldItems
-    commodities.add(oldItems)
-    for i in commodities.models
-      i.collection = commodities
 
   $('#commodities').append(commoditiesView.render().el)
 
+
+
+  readJan = (jan)->
+    commodities.addJan jan,(collection,data)->
+      collection.get(data.id).searchRecipes (collection,data)->
+        for recipe in collection.models
+          exist = recipes.get(recipe.id)
+          if exist
+            exist.set('count',exist.get('count') + 1)
+          else
+            recipes.add(recipe)
+
+      collection.get(data.id).bind 'remove',(commodity,collection,data)->
+        for recipe in commodity.recipes.models
+          exist = recipes.get(recipe.id)
+          if exist
+            count = exist.get('count')
+            if(count > 1)
+              exist.set('count',count - 1)
+            else
+              recipes.remove(exist)
+
+  oldItems = JSON.parse(localStorage.getItem('commodities'))
+  if oldItems
+    for i in oldItems
+      readJan i
+
+
   commodities.bind 'add',(commodity,collection)->
-    localStorage.setItem('commodities',JSON.stringify(collection.toJSON()))
+    localStorage.setItem('commodities',JSON.stringify(collection.models.map((e)->e.get('jan'))))
+
   commodities.bind 'remove',(commodity,collection)->
-    localStorage.setItem('commodities',JSON.stringify(collection.toJSON()))
+    localStorage.setItem('commodities',JSON.stringify(collection.models.map((e)->e.get('jan'))))
+
 
   nutritionView = new Cart.Views.Nutrition.IndexView
     commodities: commodities
@@ -34,26 +59,9 @@ $ ->
     e.preventDefault()
     $('#content').addClass('attention')
     setTimeout (->$('#content').removeClass 'attention'),1
-
-    commodities.addJan $('#hiddenField').val(),(collection,data)->
-      collection.get(data.id).searchRecipes (collection,data)->
-        for recipe in collection.models
-          exist = recipes.get(recipe.id)
-          if exist
-            exist.set('count',exist.get('count') + 1)
-          else
-            recipes.add(recipe)
-            recipesView.addOne(recipe)
-      collection.get(data.id).bind 'remove',(commodity,collection,data)->
-        for recipe in commodity.recipes.models
-          count = recipe.get('count')
-          if(count > 1)
-            recipe.set('count',count - 1)
-          else
-            recipes.remove(recipe)
-        recipes.trigger('changeAndRemove')
-      
+    readJan($('#hiddenField').val())
     $('#hiddenField').val('')
+
 
   window.debug.commodities = commodities
   window.debug.recipes     = recipes
@@ -66,6 +74,7 @@ $ ->
     $('#content .containerInner').bind 'touchstart',(e)->
       target = $(this)
       touching = target.attr('id')
+      #$('#hiddenField').focus()
     $('.containerInner').bind 'touchend',(e)->
       target = $(this)
       id = target.attr('id')
@@ -77,6 +86,7 @@ $ ->
       $('#hiddenField').focus()
     $('#content').bind 'touchend',(e)->
       $('#hiddenField').focus()
+
   else
     $('#content .containerInner').bind 'click',(e)->
       t = $(@)

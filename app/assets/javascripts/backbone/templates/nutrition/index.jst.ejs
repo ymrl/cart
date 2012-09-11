@@ -3,9 +3,9 @@
 	<div class="configuration">
 		<form id="configForm">
 			家族の人数
-			<input type="number" name="people" value="<%= people %>" min="1" id="people"/>
+			<span class="configValue people"><%= people %>人</span>
 			×
-			<input type="number" name="times" value="<%= times %>" min="1"id="times"/>食分
+			<span class="configValue times"><%= times %>食分</span>
 			<div class="changeValues">
 				<button class="peopleInclement">人数+</button>
 				<button class="peopleDeclement">人数-</button>
