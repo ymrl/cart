@@ -65,6 +65,8 @@ body { margin:0; padding:0; }
 			height:618px;
     }
     .summarizedView {
+			width:200px;
+			height:618px;
 			opacity:1;
 			position:absolute;
 			top:38px;
@@ -94,9 +96,18 @@ body { margin:0; padding:0; }
   background-color:#A69696;
 }
 
+
 //inner style
 #content{
 	.containerInner {
+		button{
+			border:1px solid #ccc;
+			padding:4px;
+			border-radius:8px;
+			height:28px;
+      width:48px;
+      background-color:#fff;
+		}
 		position:relative;
 		h1{
 			font: bold 22px sans-serif;
@@ -106,6 +117,28 @@ body { margin:0; padding:0; }
 			margin:0;
 			padding:0;
 		}
+    .box{
+      border-radius:10px;
+      overflow:hidden;
+      background-color:#fff;
+  		ul{
+  			margin:0;
+  			padding:0;
+  			li{
+  				margin:0 10px;
+  				padding:4px 12px;
+  				list-style-type:none;
+  				border-bottom:2px solid #666666;
+  				clear:both;
+  				text-align:left;
+        }
+  			li:last-child {
+  				border-bottom-width:0;
+  			}
+      }
+    }
+    
+
 		.listWrapper{
 			position:relative;
 			height: 618px;
@@ -128,13 +161,6 @@ body { margin:0; padding:0; }
 					padding:0;
 				}
 				.control{
-					button{
-						border:1px solid #ccc;
-						padding:4px;
-						border-radius:4px;
-						width:60px;
-						height:30px;
-					}
 				}
 			}
 		}
@@ -222,11 +248,26 @@ body { margin:0; padding:0; }
   		font:normal 18px sans-serif;
   		text-align:right;
   	}
+    .summarizedView{
+      top:68px;
+      .summarizedList{
+        height: 588px;
+        width:200px;
+        ul{
+          li {
+            border-color: #409A95;
+            .num {
+              text-align:right;
+            }
+          }
+        }
+      }
+    }
   	.detailView{
   		top:68px; @important
-  		height:582px;
+  		height:588px;
   		.listWrapper {
-  			height:582px;
+  			height:588px;
   			.entity {
 					h2{
 						display: inline;
@@ -238,6 +279,10 @@ body { margin:0; padding:0; }
   					//float:right;
   				}
   				.info { }
+          .amountControl {
+            float:right;
+            text-align:right;
+          }
   			}
   		}
   	}
@@ -246,6 +291,47 @@ body { margin:0; padding:0; }
     color:#371A21;
     border-color: #EF7496;
     background-color: #EF7496;
+		.suggestions {
+			height:618px;
+			overflow:hidden;
+			h2 {
+				font:bold 20px sans-serif;
+				text-align:center;
+				margin:4px 4px;
+				padding:0;
+			}
+			.suggestion{
+				margin:14px 8px;
+				.suggestionTitle{
+					h3 {
+						font: bold 18px sans-serif;
+						text-align:left;
+						margin:4px 0;
+						padding:0;
+					}
+				}
+				.price {
+					font: bold 16px sans-serif;
+					text-align:right;
+					width:60px;
+					margin:4px 0 0;
+					float:right;
+				}
+				.favoritesView{
+					width:40px;
+					text-align:right;
+					float:right;
+					clear:right;
+				}
+				p {
+					clear:both;
+					margin: 6px 0;
+				}
+				.attributes{
+					font:normal 14px sans-serif;
+				}
+			}
+		}
   	.configuration {
   		background-color:#fff;
   		border-radius: 10px;
@@ -256,6 +342,9 @@ body { margin:0; padding:0; }
   			width: 60px;
   			height: 20px;
   		}
+      .changeValues {
+        margin: 4px 0 0;
+      }
   	}
   	.nutritionData{
   		background-color:#fff;
@@ -288,5 +377,23 @@ body { margin:0; padding:0; }
   			}
   		}
   	}
+		.advise{
+			position:relative;
+			overflow:hidden;
+			height:216px;
+			.adviseInner{
+				padding: 10px 0;
+
+			}
+			
+			h2 {
+				font: bold 20px sans-serif;
+				margin:10px ;
+				padding:0;
+			}
+			p {
+				margin: 5px 10px ;
+			}
+		}
   }
 }

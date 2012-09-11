@@ -9,7 +9,12 @@ class Cart.Views.Commodities.CommodityView extends Backbone.View
     "click .remove":  "remove"
     "click .plus":    "plus"
     "click .minus":   "minus"
+    "click .favorite": "favorite"
 
+  favorite: (e)=>
+    @model.set('favorites',@model.get('favorites') + 1)
+    @$el.find('.favoritesCount').text(@model.get('favorites'))
+    @model.favorite()
   plus: (e)=>
     @model.set('count',@model.get('count') + 1)
   minus: (e)=>
@@ -32,4 +37,7 @@ class Cart.Views.Commodities.CommodityView extends Backbone.View
 
   render: =>
     $(@el).html(@template(@model.toJSON() ))
+    if @expand
+      @$el.find('.info').show()
+      @$el.find('.expand').text('▲')
     return this

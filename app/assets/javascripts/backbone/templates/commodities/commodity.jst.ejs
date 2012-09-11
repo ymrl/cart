@@ -3,6 +3,11 @@
 	<span class="num">
 		<span class="price"><%= price %>円</span> × <span class="count"><%= count %>個</span>
 	</span>
+	<div class="amountControl">
+		<button class="plus">増やす</button>
+		<button class="minus">減らす</button>
+		<button class="remove">削除</button>
+	</div>
 	<div class="info" style="display:none;">
 		<div class="description"><p><%= description %></p></div>
 		<ul class="commodityNutrition">
@@ -20,8 +25,6 @@
 	</div>
 	<div class="control">
 		<button class="expand">▼</button>
-		<button class="plus">増やす</button>
-		<button class="minus">減らす</button>
-		<button class="remove">削除</button>
+		<button class="favorite">&hearts; <span class="favoritesCount"><%= favorites %></span></button>
 	</div>
 </div>

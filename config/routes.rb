@@ -11,7 +11,13 @@ Cart::Application.routes.draw do
   resources :commodities do
     collection do
       get 'search'
+      get 'nutrition/:type',:action=>:nutrition
+      get 'popular'
     end
+    member do
+      put 'favorite'
+    end
+
   end
 
   resources :ingredients

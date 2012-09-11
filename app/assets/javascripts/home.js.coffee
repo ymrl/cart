@@ -48,6 +48,7 @@ $ ->
   window.debug.recipes     = recipes
   window.debug.recipesView = recipesView
   window.debug.commoditiesView = commoditiesView
+  window.debug.nutritionView = nutritionView
   
   touching = null
   if navigator.userAgent.match(/iPad/)
@@ -67,7 +68,6 @@ $ ->
       $('#hiddenField').focus()
   else
     $('#content .containerInner').bind 'click',(e)->
-      touching = 
       t = $(@)
       if !t.hasClass('open')
         $('.open').removeClass('open')

@@ -12,6 +12,16 @@ class Cart.Models.Commodity extends Backbone.Model
     @recipes = new Cart.Collections.RecipesCollection
   searchRecipes: (callback)=>
     @recipes.searchByIngredient(@get('ingredient_id'),callback)
+  favorite: ()=>
+    url = @url() + '/favorite'
+    method = 'update'
+    options =
+      success: (data)=>
+        console.log(data)
+        @set('favorites',data.favorites)
+        @trigger 'change'
+      url: url
+    (@sync || Backbone.sync).call @, method, @, options
 
 class Cart.Collections.CommoditiesCollection extends Backbone.Collection
   model: Cart.Models.Commodity
@@ -33,6 +43,12 @@ class Cart.Collections.CommoditiesCollection extends Backbone.Collection
         if callback then callback.call(@,collection,data)
         collection.get(data.id).collection = collection
       add:true
+  searchNutrition:(type)=>
+    @fetch
+      url: "/commodities/nutrition/#{type}"
+  searchPopular:()=>
+    @fetch
+      url: "/commodities/popular"
   getTotalPrice:()=>
     total = 0
     for i in @models

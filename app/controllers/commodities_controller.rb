@@ -15,6 +15,7 @@ class CommoditiesController < ApplicationController
             :created_at    => e.created_at,
             :updated_at    => e.updated_at,
             :producer      => e.producer,
+            :favorites     => e.favorites,
             :name          => e.ingredient.name
         }
       }
@@ -39,6 +40,7 @@ class CommoditiesController < ApplicationController
         :description   => @commodity.description,
         :created_at    => @commodity.created_at,
         :updated_at    => @commodity.updated_at,
+        :favorites     => @commodity.favorites,
         :producer      => @commodity.producer,
         :name          => @ingredient.name,
         :calorie       => @ingredient.calorie       * @commodity.weight / 100,
@@ -134,6 +136,7 @@ class CommoditiesController < ApplicationController
         :created_at    => @commodity.created_at,
         :updated_at    => @commodity.updated_at,
         :producer      => @commodity.producer,
+        :favorites     => @commodity.favorites,
         :name          => @ingredient.name,
         :calorie       => @ingredient.calorie       * @commodity.weight / 100,
         :carbohydrates => @ingredient.carbohydrates * @commodity.weight / 100,
@@ -146,6 +149,52 @@ class CommoditiesController < ApplicationController
         :calcium       => @ingredient.calcium       * @commodity.weight / 100,
       } 
     }
+    end
+  end
+  def favorite
+    @commodity = Commodity.find(params[:id])
+    @commodity.favorites += 1
+    @ingredient = @commodity.ingredient
+    respond_to do |format|
+      if @commodity.save
+          format.json { render json: {
+            :id            => @commodity.id,
+            :jan           => @commodity.jan,
+            :price         => @commodity.price,
+            :ingredient_id => @commodity.ingredient_id,
+            :weight        => @commodity.weight,
+            :description   => @commodity.description,
+            :created_at    => @commodity.created_at,
+            :updated_at    => @commodity.updated_at,
+            :producer      => @commodity.producer,
+            :favorites     => @commodity.favorites,
+            :name          => @ingredient.name,
+            :calorie       => @ingredient.calorie       * @commodity.weight / 100,
+            :carbohydrates => @ingredient.carbohydrates * @commodity.weight / 100,
+            :protein       => @ingredient.protein       * @commodity.weight / 100,
+            :fat           => @ingredient.fat           * @commodity.weight / 100,
+            :carotene      => @ingredient.carotene      * @commodity.weight / 100,
+            :vitamin_b1    => @ingredient.vitamin_b1    * @commodity.weight / 100,
+            :vitamin_b2    => @ingredient.vitamin_b2    * @commodity.weight / 100,
+            :vitamin_c     => @ingredient.vitamin_c     * @commodity.weight / 100,
+            :calcium       => @ingredient.calcium       * @commodity.weight / 100,
+          }
+        }
+      else
+        format.json { render json: @commodity.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  def nutrition
+    @commodities = Commodity.joins(:ingredient).order("ingredients.#{params[:type]} desc").limit(3).select(%w|ingredients.name commodities.description commodities.favorites commodities.id commodities.jan commodities.price commodities.producer commodities.weight|)
+    respond_to do |format|
+      format.json { render json: @commodities}
+    end
+  end
+  def popular
+    @commodities = Commodity.joins(:ingredient).order("favorites desc").limit(3).select(%w|ingredients.name commodities.description commodities.favorites commodities.id commodities.jan commodities.price commodities.producer commodities.weight|)
+    respond_to do |format|
+      format.json { render json: @commodities}
     end
   end
 end

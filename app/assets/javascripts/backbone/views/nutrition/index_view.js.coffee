@@ -7,6 +7,27 @@ class Cart.Views.Nutrition.IndexView extends Backbone.View
     "change #times":"changeTimes"
     "change #people":"changePeople"
     "submit #configForm":"noEvent"
+    "click .peopleInclement" : "peopleInclement"
+    "click .peopleDeclement" : "peopleDeclement"
+    "click .timesInclement"  : "timesInclement"
+    "click .timesDeclement"  : "timesDeclement"
+
+  peopleInclement:(e)=>
+    e.preventDefault()
+    @people += 1
+    @render()
+  peopleDeclement:(e)=>
+    e.preventDefault()
+    @people = Math.max(@people-1,1)
+    @render()
+  timesInclement:(e)=>
+    e.preventDefault()
+    @times += 1
+    @render()
+  timesDeclement:(e)=>
+    e.preventDefault()
+    @times = Math.max(@times-1,1)
+    @render()
   noEvent: (e)=>
     e.preventDefault()
   changePeople: (e)=>
@@ -24,6 +45,7 @@ class Cart.Views.Nutrition.IndexView extends Backbone.View
     @options.commodities.bind('change',@render)
     @people = 4
     @times  = 1
+    @suggestionView = new Cart.Views.Nutrition.SuggestionView
 
   prepare: =>
     arr = []
@@ -34,7 +56,7 @@ class Cart.Views.Nutrition.IndexView extends Backbone.View
         standard: standard
         contain:  contain
         nutrition: i
-    return arr.sort((a,b)->a.contain - b.contain)
+    @sorted = arr.sort((a,b)->a.contain - b.contain)
   render: =>
     @nutrition = @options.commodities.getNutrition()
     data = @prepare()
@@ -43,18 +65,21 @@ class Cart.Views.Nutrition.IndexView extends Backbone.View
     if @options.commodities.length == 0
       advise = Cart.Constants.Messages.start
       title = 'いらっしゃいませ'
+      @suggestionView.getData('start')
     else if data[0].contain < 1
       advise = Cart.Constants.Messages[data[0].nutrition]
+      @suggestionView.getData(data[0].nutrition)
       lack = []
       for i in data
         if i.contain < 1
-          lack.push(i)
+          lack.push(Cart.Constants.Nutrition[i.nutrition].name)
         else
           break
       title = "#{lack.join('・')}が不足しています"
     else
       advise =  Cart.Constants.Messages.perfect
       title = "十分な栄養が取れそうです"
+      @suggestionView.getData('perfect')
 
     html = @template
       nutrition: @nutrition
@@ -65,5 +90,7 @@ class Cart.Views.Nutrition.IndexView extends Backbone.View
       advise:   advise
       title:    title
     $(@el).html(html)
+    @$el.find('.summarizedView').html(@suggestionView.render().el)
+    @scorll = new iScroll(@$el.find('.advise').get(0))
 
     return this

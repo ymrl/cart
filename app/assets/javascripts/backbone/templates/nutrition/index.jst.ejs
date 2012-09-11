@@ -6,6 +6,12 @@
 			<input type="number" name="people" value="<%= people %>" min="1" id="people"/>
 			×
 			<input type="number" name="times" value="<%= times %>" min="1"id="times"/>食分
+			<div class="changeValues">
+				<button class="peopleInclement">人数+</button>
+				<button class="peopleDeclement">人数-</button>
+				<button class="timesInclement">回数+</button>
+				<button class="timesDeclement">回数-</button>
+			</div>
 		</form>
 	</div>
 	<div class="nutritionData">
@@ -18,10 +24,12 @@
 		<% } %>
 		</ul>
 	</div>
+	<div class="advise box">
+		<div class="adviseInner">
+			<h2><%= title %></h2>
+			<p><%= advise %></p>
+		</div>
+	</div>
 </div>
 <div class="summarizedView">
-	<div class="advise">
-		<h2><%= title %></h2>
-		<%= advise %>
-	</div>
 </div>

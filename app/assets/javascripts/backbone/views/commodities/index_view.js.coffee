@@ -25,6 +25,7 @@ class Cart.Views.Commodities.IndexView extends Backbone.View
     @$el.find(".detailView .list").append(view.render().el)
     view.bind('changeSize', =>if @scroll then @scroll.refresh() )
     if @scroll then @scroll.refresh()
+    @$el.find('.holder').hide()
   render: =>
     data =
       commodities: @options.commodities.toJSON()
@@ -32,6 +33,11 @@ class Cart.Views.Commodities.IndexView extends Backbone.View
     @addAll()
     @$el.find('.summarizedView').append(@summarizedView.render().el)
     @priceRewrite()
+    if @options.commodities.length == 0
+      @$el.find('.holder').show()
+    else
+      @$el.find('.holder').hide()
+
     @scroll = new iScroll(@$el.find(".listWrapper").get(0))
     @scroll.refresh()
 
