@@ -26,7 +26,8 @@ class Cart.Views.Commodities.CommodityView extends Backbone.View
       @model.collection.remove(@model)
     $('#hiddenField').focus()
   remove: (e)=>
-    @model.collection.remove(@model)
+    @$el.hide()
+    setTimeout =>@model.collection.remove(@model)
     $('#hiddenField').focus()
   openClose: (e)=>
     @$el.find('.expand').text(if @expand then '▼' else '▲')
