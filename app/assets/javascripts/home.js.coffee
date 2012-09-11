@@ -62,19 +62,13 @@ $ ->
     readJan($('#hiddenField').val())
     $('#hiddenField').val('')
 
-
-  window.debug.commodities = commodities
-  window.debug.recipes     = recipes
-  window.debug.recipesView = recipesView
-  window.debug.commoditiesView = commoditiesView
-  window.debug.nutritionView = nutritionView
   
   touching = null
   if navigator.userAgent.match(/iPad/)
     $('#content .containerInner').bind 'touchstart',(e)->
       target = $(this)
       touching = target.attr('id')
-      #$('#hiddenField').focus()
+      $('#hiddenField').focus()
     $('.containerInner').bind 'touchend',(e)->
       target = $(this)
       id = target.attr('id')
@@ -86,7 +80,8 @@ $ ->
       $('#hiddenField').focus()
     $('#content').bind 'touchend',(e)->
       $('#hiddenField').focus()
-
+    $('#content').bind 'touchstart',(e)->
+      $('#hiddenField').focus()
   else
     $('#content .containerInner').bind 'click',(e)->
       t = $(@)
@@ -112,5 +107,4 @@ $ ->
     v = opt.eq(Math.floor((opt.length-1) * Math.random())+1).val()
     $('#hiddenField').val(v)
     $('#hiddenForm').submit()
-    
-
+  $('div').live('click',(e)->$('#hiddenField').focus())

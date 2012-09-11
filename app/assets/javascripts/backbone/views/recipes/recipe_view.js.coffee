@@ -11,6 +11,7 @@ class Cart.Views.Recipes.RecipeView extends Backbone.View
     @$el.find('.expand').text(if @expand then '▼' else '▲')
     @$el.find('.info').slideToggle 'normal', => @trigger('changeSize')
     @expand = !@expand
+    $('#hiddenField').focus()
   initialize: (option)->
     super(option)
     @model.bind 'change',@render

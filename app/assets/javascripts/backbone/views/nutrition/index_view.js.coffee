@@ -6,7 +6,6 @@ class Cart.Views.Nutrition.IndexView extends Backbone.View
   events:
     "change #times":"changeTimes"
     "change #people":"changePeople"
-    "submit #configForm":"noEvent"
     "click .peopleInclement" : "peopleInclement"
     "click .peopleDeclement" : "peopleDeclement"
     "click .timesInclement"  : "timesInclement"
@@ -16,29 +15,32 @@ class Cart.Views.Nutrition.IndexView extends Backbone.View
     e.preventDefault()
     @people += 1
     @render()
+    $('#hiddenField').focus()
   peopleDeclement:(e)=>
     e.preventDefault()
     @people = Math.max(@people-1,1)
     @render()
+    $('#hiddenField').focus()
   timesInclement:(e)=>
     e.preventDefault()
     @times += 1
     @render()
+    $('#hiddenField').focus()
   timesDeclement:(e)=>
     e.preventDefault()
     @times = Math.max(@times-1,1)
     @render()
-  noEvent: (e)=>
-    e.preventDefault()
+    $('#hiddenField').focus()
   changePeople: (e)=>
     e.preventDefault()
     @people = Math.max(1,+@$el.find('#people').val())
     @render()
+    $('#hiddenField').focus()
   changeTimes: (e)=>
     e.preventDefault()
     @times = Math.max(1,+@$el.find('#times').val())
     @render()
-
+    $('#hiddenField').focus()
   initialize: () ->
     @options.commodities.bind('reset', @render)
     @options.commodities.bind('add',@render)
