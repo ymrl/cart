@@ -13,7 +13,18 @@ $ ->
   commodities = new Cart.Collections.CommoditiesCollection
   commoditiesView = new Cart.Views.Commodities.IndexView
     commodities: commodities
+  oldItems = JSON.parse(localStorage.getItem('commodities'))
+  if oldItems
+    commodities.add(oldItems)
+    for i in commodities.models
+      i.collection = commodities
+
   $('#commodities').append(commoditiesView.render().el)
+
+  commodities.bind 'add',(commodity,collection)->
+    localStorage.setItem('commodities',JSON.stringify(collection.toJSON()))
+  commodities.bind 'remove',(commodity,collection)->
+    localStorage.setItem('commodities',JSON.stringify(collection.toJSON()))
 
   nutritionView = new Cart.Views.Nutrition.IndexView
     commodities: commodities
