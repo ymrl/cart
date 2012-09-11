@@ -1,0 +1,19 @@
+<div class="box suggestions">
+	<h2>本日のおすすめ</h2>
+	<div class="suggestionsWrapper">
+	<% for(var i=0;i<commodities.length;i++){ %>
+		<div class="suggestion">
+			<div class="price"><%= commodities[i].price %>円</div>
+			<div class="suggestionTitle">
+
+				<h3><%= commodities[i].name %></h3>
+			</div>
+			<div class="attributes">
+				<div class="favoritesView">&hearts;<span class="favorite"><%= commodities[i].favorites %></div>
+				<div><%= commodities[i].producer %></div>
+			</div>
+			<p><%= commodities[i].description %></p>
+		</div>
+	<% } %>
+	</div>
+</div>
