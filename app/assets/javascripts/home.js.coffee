@@ -16,8 +16,17 @@ $ ->
 
   $('#commodities').append(commoditiesView.render().el)
 
-  readJan = (jan)->
+  #debug.commodities = commodities
+
+  readJan = (jan,commodityCount)->
+    #if a = commodities.findByJan(jan)
+    #  if commodityCount
+    #    a.set('count',commodityCount)
+    #    return a
+
     commodities.addJan jan,(collection,data)->
+      if commodityCount
+        collection.get(data.id).set('count',commodityCount)
       collection.get(data.id).searchRecipes (collection,data)->
         for recipe in collection.models
           exist = recipes.get(recipe.id)
@@ -37,16 +46,36 @@ $ ->
               recipes.remove(exist)
 
   oldItems = JSON.parse(localStorage.getItem('commodities'))
+
   if oldItems
     for i in oldItems
-      readJan i
+      readJan(i.jan,i.count)
 
+  saveToLocalStorage = ()->
+    #a = []
+    #for commodity in commodities.models
+    #  i = 0
+    #  count = commodity.get('count')
+    #  jan = commodity.get('jan')
+    #  while i < count
+    #    a.push jan
+    #    i++
+    #console.log(a)
+    #localStorage.setItem('commodities',JSON.stringify(a))
+    #localStorage.setItem('commodities',JSON.stringify(commodities.models.map((e)->e.get('jan'))))
+    localStorage.setItem('commodities',JSON.stringify(commodities.toJSON()))
 
   commodities.bind 'add',(commodity,collection)->
-    localStorage.setItem('commodities',JSON.stringify(collection.models.map((e)->e.get('jan'))))
+    saveToLocalStorage()
+    #localStorage.setItem('commodities',JSON.stringify(collection.models.map((e)->e.get('jan'))))
 
   commodities.bind 'remove',(commodity,collection)->
-    localStorage.setItem('commodities',JSON.stringify(collection.models.map((e)->e.get('jan'))))
+    saveToLocalStorage()
+    #localStorage.setItem('commodities',JSON.stringify(collection.models.map((e)->e.get('jan'))))
+    #
+  commodities.bind 'change',(commodity,collection)->
+    saveToLocalStorage()
+    #localStorage.setItem('commodities',JSON.stringify(collection.models.map((e)->e.get('jan'))))
 
 
   nutritionView = new Cart.Views.Nutrition.IndexView

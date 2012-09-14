@@ -34,6 +34,11 @@ class Cart.Collections.CommoditiesCollection extends Backbone.Collection
         @trigger('change')
         return i
     @searchByJan(jan,callback)
+  findByJan: (jan)=>
+    for i in @models
+      if i.get('jan') is jan
+        return i
+    return null
   searchByJan: (jan,callback)=>
     @fetch
       url: '/commodities/search'
