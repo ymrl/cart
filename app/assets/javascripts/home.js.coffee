@@ -16,7 +16,8 @@ $ ->
 
   $('#commodities').append(commoditiesView.render().el)
 
-  #debug.commodities = commodities
+  debug.commodities = commodities
+  debug.commoditiesView = commoditiesView
 
   readJan = (jan,commodityCount)->
     #if a = commodities.findByJan(jan)
@@ -34,6 +35,7 @@ $ ->
             exist.set('count',exist.get('count') + 1)
           else
             recipes.add(recipe)
+        recipes.trigger('changeAndRemove')
 
       collection.get(data.id).bind 'remove',(commodity,collection,data)->
         for recipe in commodity.recipes.models
@@ -44,6 +46,7 @@ $ ->
               exist.set('count',count - 1)
             else
               recipes.remove(exist)
+        recipes.trigger('changeAndRemove')
 
   oldItems = JSON.parse(localStorage.getItem('commodities'))
 

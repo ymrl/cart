@@ -8,7 +8,8 @@ class Cart.Views.Recipes.IndexView extends Backbone.View
     @options.recipes.bind('change',@sort)
     @options.recipes.bind('add',@addOne)
     @options.recipes.bind('changeAndRemove',@render)
-    @options.recipes.bind('remove',@render)
+    #@options.recipes.bind('remove',@render)
+    #@options.recipes.bind('changeAndRemove',@sort)
     @views = []
     @photoView = new Cart.Views.Recipes.PhotoView
       recipes: @options.recipes
