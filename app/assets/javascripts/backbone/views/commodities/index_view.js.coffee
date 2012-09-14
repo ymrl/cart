@@ -24,8 +24,11 @@ class Cart.Views.Commodities.IndexView extends Backbone.View
     view = new Cart.Views.Commodities.CommodityView({model : commodity})
     @$el.find(".detailView .list").append(view.render().el)
     view.bind('changeSize', =>if @scroll then @scroll.refresh() )
-    if @scroll then @scroll.refresh()
+    if @scroll
+      @scroll.refresh()
+      @scroll.scrollTo(0,- @scroll.scrollerH + @scroll.wrapperH)
     @$el.find('.holder').hide()
+    
   render: =>
     data =
       commodities: @options.commodities.toJSON()
