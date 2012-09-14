@@ -9,15 +9,16 @@ class Cart.Views.Recipes.IndexView extends Backbone.View
     @views = []
     @photoView = new Cart.Views.Recipes.PhotoView
       recipes: @options.recipes
-  sort: ()=>
-    console.log('recipes sort')
-    @views = @views.sort (a,b)->return b.model.get('count') - a.model.get('count')
-    for view in @views
-      @$(".detailView .list").append(view.el)
+  #sort: ()=>
+  #  console.log('recipes sort')
+  #  @views = @views.sort (a,b)->return b.model.get('count') - a.model.get('count')
+  #  for view in @views
+  #    @$(".detailView .list").append(view.el)
 
 
   addAll: () =>
-    @options.recipes.each(@addOne)
+    for i in @options.recipes.models.sort((a,b)->return b.get('count')-a.get('count'))
+      @addOne i
 
   addOne: (recipe) =>
     view = new Cart.Views.Recipes.RecipeView
@@ -34,7 +35,6 @@ class Cart.Views.Recipes.IndexView extends Backbone.View
     @views = []
     $(@el).html(@template(recipes: @options.recipes.toJSON() ))
     @addAll()
-    @sort()
     if @options.recipes.length == 0
       @$el.find('.holder').show()
     @$el.find('.summarizedView').append(@photoView.render().el)

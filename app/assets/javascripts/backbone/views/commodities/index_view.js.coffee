@@ -26,7 +26,8 @@ class Cart.Views.Commodities.IndexView extends Backbone.View
     view.bind('changeSize', =>if @scroll then @scroll.refresh() )
     if @scroll
       @scroll.refresh()
-      @scroll.scrollTo(0,- @scroll.scrollerH + @scroll.wrapperH)
+      if @scroll.scrollerH > @scroll.wrapperH
+        @scroll.scrollTo(0,- @scroll.scrollerH + @scroll.wrapperH)
     @$el.find('.holder').hide()
     
   render: =>
