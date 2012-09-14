@@ -5,15 +5,12 @@ class Cart.Views.Recipes.IndexView extends Backbone.View
 
   initialize: () ->
     @options.recipes.bind('reset', @addAll)
-    @options.recipes.bind('change',@sort)
-    @options.recipes.bind('add',@addOne)
     @options.recipes.bind('changeAndRemove',@render)
-    #@options.recipes.bind('remove',@render)
-    #@options.recipes.bind('changeAndRemove',@sort)
     @views = []
     @photoView = new Cart.Views.Recipes.PhotoView
       recipes: @options.recipes
   sort: ()=>
+    console.log('recipes sort')
     @views = @views.sort (a,b)->return b.model.get('count') - a.model.get('count')
     for view in @views
       @$(".detailView .list").append(view.el)
@@ -23,7 +20,8 @@ class Cart.Views.Recipes.IndexView extends Backbone.View
     @options.recipes.each(@addOne)
 
   addOne: (recipe) =>
-    view = new Cart.Views.Recipes.RecipeView({model : recipe})
+    view = new Cart.Views.Recipes.RecipeView
+      model : recipe
     @$(".detailView .list").append(view.render().el)
     view.bind('changeSize', =>if @scroll then @scroll.refresh() )
     @views.push view
@@ -31,6 +29,7 @@ class Cart.Views.Recipes.IndexView extends Backbone.View
     @$el.find('.holder').hide()
 
   render: =>
+    console.log('recipes render')
     @views = []
     $(@el).html(@template(recipes: @options.recipes.toJSON() ))
     @addAll()

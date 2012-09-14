@@ -20,14 +20,10 @@ $ ->
   debug.commoditiesView = commoditiesView
 
   readJan = (jan,commodityCount)->
-    #if a = commodities.findByJan(jan)
-    #  if commodityCount
-    #    a.set('count',commodityCount)
-    #    return a
-
     commodities.addJan jan,(collection,data)->
       if commodityCount
         collection.get(data.id).set('count',commodityCount)
+
       collection.get(data.id).searchRecipes (collection,data)->
         for recipe in collection.models
           exist = recipes.get(recipe.id)
@@ -36,7 +32,6 @@ $ ->
           else
             recipes.add(recipe)
         recipes.trigger('changeAndRemove')
-
       collection.get(data.id).bind 'remove',(commodity,collection,data)->
         for recipe in commodity.recipes.models
           exist = recipes.get(recipe.id)
