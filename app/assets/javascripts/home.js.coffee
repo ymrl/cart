@@ -5,14 +5,16 @@
 window.debug ||= {}
 $ ->
   buffer = ""
-  recipes = new Cart.Collections.RecipesCollection
-  recipesView = new Cart.Views.Recipes.IndexView
-    recipes: recipes
-  $('#recipes').append(recipesView.render().el)
 
   commodities = new Cart.Collections.CommoditiesCollection
   commoditiesView = new Cart.Views.Commodities.IndexView
     commodities: commodities
+
+  recipes = new Cart.Collections.RecipesCollection
+  recipesView = new Cart.Views.Recipes.IndexView
+    recipes: recipes
+    commodities: commodities
+  $('#recipes').append(recipesView.render().el)
 
   $('#commodities').append(commoditiesView.render().el)
 

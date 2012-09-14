@@ -3,9 +3,9 @@ Cart.Views.Recipes ||= {}
 class Cart.Views.Recipes.RecipeView extends Backbone.View
   template: JST["backbone/templates/recipes/recipe"]
 
-  events:
-    #"click .destroy" : "destroy"
-    "click .expand" : "openClose"
+  #events:
+  #  "click .destroy" : "destroy"
+  #  "click .expand" : "openClose"
 
   openClose: (e)=>
     @$el.find('.expand').text(if @expand then '▼' else '▲')
@@ -24,5 +24,6 @@ class Cart.Views.Recipes.RecipeView extends Backbone.View
     return false
 
   render: =>
-    $(@el).html(@template(@model.toJSON() ))
+    commodities = @options.commodities.map (e)-> e.get('name')
+    $(@el).html(@template({model:@model.toJSON(),commodities:commodities} ))
     return this

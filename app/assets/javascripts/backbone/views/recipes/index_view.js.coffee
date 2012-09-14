@@ -22,6 +22,7 @@ class Cart.Views.Recipes.IndexView extends Backbone.View
   addOne: (recipe) =>
     view = new Cart.Views.Recipes.RecipeView
       model : recipe
+      commodities : @options.commodities
     @$(".detailView .list").append(view.render().el)
     view.bind('changeSize', =>if @scroll then @scroll.refresh() )
     @views.push view
